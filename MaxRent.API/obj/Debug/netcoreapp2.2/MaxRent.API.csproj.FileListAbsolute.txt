@@ -1,0 +1,14 @@
+C:\Users\Mokytojas\Desktop\maxrent\maxrentmain\MaxRent.API\bin\Debug\netcoreapp2.2\MaxRent.API.deps.json
+C:\Users\Mokytojas\Desktop\maxrent\maxrentmain\MaxRent.API\bin\Debug\netcoreapp2.2\MaxRent.API.runtimeconfig.json
+C:\Users\Mokytojas\Desktop\maxrent\maxrentmain\MaxRent.API\bin\Debug\netcoreapp2.2\MaxRent.API.runtimeconfig.dev.json
+C:\Users\Mokytojas\Desktop\maxrent\maxrentmain\MaxRent.API\bin\Debug\netcoreapp2.2\MaxRent.API.dll
+C:\Users\Mokytojas\Desktop\maxrent\maxrentmain\MaxRent.API\bin\Debug\netcoreapp2.2\MaxRent.API.pdb
+C:\Users\Mokytojas\Desktop\maxrent\maxrentmain\MaxRent.API\obj\Debug\netcoreapp2.2\MaxRent.API.csprojAssemblyReference.cache
+C:\Users\Mokytojas\Desktop\maxrent\maxrentmain\MaxRent.API\obj\Debug\netcoreapp2.2\MaxRent.API.csproj.CoreCompileInputs.cache
+C:\Users\Mokytojas\Desktop\maxrent\maxrentmain\MaxRent.API\obj\Debug\netcoreapp2.2\MaxRent.API.RazorAssemblyInfo.cache
+C:\Users\Mokytojas\Desktop\maxrent\maxrentmain\MaxRent.API\obj\Debug\netcoreapp2.2\MaxRent.API.RazorAssemblyInfo.cs
+C:\Users\Mokytojas\Desktop\maxrent\maxrentmain\MaxRent.API\obj\Debug\netcoreapp2.2\MaxRent.API.AssemblyInfoInputs.cache
+C:\Users\Mokytojas\Desktop\maxrent\maxrentmain\MaxRent.API\obj\Debug\netcoreapp2.2\MaxRent.API.AssemblyInfo.cs
+C:\Users\Mokytojas\Desktop\maxrent\maxrentmain\MaxRent.API\obj\Debug\netcoreapp2.2\MaxRent.API.RazorTargetAssemblyInfo.cache
+C:\Users\Mokytojas\Desktop\maxrent\maxrentmain\MaxRent.API\obj\Debug\netcoreapp2.2\MaxRent.API.dll
+C:\Users\Mokytojas\Desktop\maxrent\maxrentmain\MaxRent.API\obj\Debug\netcoreapp2.2\MaxRent.API.pdb
