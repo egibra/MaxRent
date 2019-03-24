@@ -15,6 +15,33 @@
         Kontaktai
       </a>    
     </li>
+    <li class='has-submenu'>
+      <a href="javascript:void(0)">
+        adminpages
+     </a>
+      <ul>
+        <li>
+            <a [routerLink]="'/profit-chart'" >
+                {{ 'profit-chart' | translate}}
+             </a>
+        </li>
+        <li>
+            <a [routerLink]="'/expenses-chart'" >
+                {{ 'expenses-chart' | translate}}
+             </a>
+        </li>
+        <li>
+          <a [routerLink]="'/expenses-list'">
+            {{'expenses-list' | translate}}
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="'/products-list'">
+            {{'products-list' | translate}}
+          </a>
+        </li>
+      </ul>
+    </li>
     <!-- 1st Level Menu -->
     <li *ngFor="let menuItem of menuItems" [class]="menuItem.megaMenu ? 'mega' : ''">
         <!-- Sub -->

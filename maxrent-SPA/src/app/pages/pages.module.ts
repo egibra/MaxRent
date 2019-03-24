@@ -28,13 +28,16 @@ import { MasonaryTwoGridComponent } from './portfolio/masonary-two-grid/masonary
 import { MasonaryThreeGridComponent } from './portfolio/masonary-three-grid/masonary-three-grid.component';
 import { MasonaryFourGridComponent } from './portfolio/masonary-four-grid/masonary-four-grid.component';
 import { MasonaryFullwidthComponent } from './portfolio/masonary-fullwidth/masonary-fullwidth.component';
+import { FormsModule } from '@angular/forms';
+import { MyOrdersComponent } from './my-orders/my-orders.component';
 
 @NgModule({
   imports: [
     CommonModule,
     PagesRoutingModule,
     SlickCarouselModule,
-    IsotopeModule
+    IsotopeModule,
+    FormsModule
   ],
   declarations: [
     AboutUsComponent,
@@ -60,7 +63,8 @@ import { MasonaryFullwidthComponent } from './portfolio/masonary-fullwidth/mason
     MasonaryTwoGridComponent,
     MasonaryThreeGridComponent,
     MasonaryFourGridComponent,
-    MasonaryFullwidthComponent
+    MasonaryFullwidthComponent,
+    MyOrdersComponent
   ]
 })
 export class PagesModule { }

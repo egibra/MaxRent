@@ -36,6 +36,8 @@ import { MasonaryFullwidthComponent } from './pages/portfolio/masonary-fullwidth
 import { ProfitChartComponent } from './admin/profit-chart/profit-chart.component';
 import { ExpensesChartComponent } from './admin/expenses/expenses-chart/expenses-chart.component';
 import { ExpensesListComponent } from './admin/expenses/expenses-list/expenses-list.component';
+import { MyOrdersComponent } from './pages/my-orders/my-orders.component';
+import { ProductListComponent } from './admin/products/product-list/product-list.component';
 
 export const rootRouterConfig: Routes = [
   {
@@ -50,6 +52,10 @@ export const rootRouterConfig: Routes = [
   {
     path: 'profit-chart',
     component: ProfitChartComponent
+  },
+  {
+    path: 'products-list',
+    component: ProductListComponent
   },
   {
     path: 'expenses-chart',
@@ -90,6 +96,10 @@ export const rootRouterConfig: Routes = [
   {
     path: 'cart',
     component: CartComponent
+  },
+  {
+    path: 'myorders',
+    component: MyOrdersComponent
   },
   {
     path: 'checkout',

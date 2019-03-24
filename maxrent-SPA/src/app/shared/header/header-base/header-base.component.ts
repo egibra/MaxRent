@@ -34,15 +34,4 @@ export class HeaderBaseComponent implements OnInit {
      this.fix.removeNavFix();
   }
 
-  // @HostListener Decorator
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    const number = this.window.pageYOffset || this.document.documentElement.scrollTop || this.document.body.scrollTop || 0;
-      if (number >= 300) {
-        this.document.getElementById('sticky').classList.add('fixed');
-      } else {
-        this.document.getElementById('sticky').classList.remove('fixed');
-      }
-  }
-
 }

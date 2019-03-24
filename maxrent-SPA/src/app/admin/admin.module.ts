@@ -9,7 +9,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { PaginationModule } from 'ngx-bootstrap';
-
+import { ProductCardComponent } from './products/product-card/product-card.component';
+import { ProductListComponent } from './products/product-list/product-list.component';
 
 @NgModule({
   imports: [
@@ -26,6 +27,8 @@ import { PaginationModule } from 'ngx-bootstrap';
     ExpensesChartComponent,
     ProfitChartComponent,
     ExpensesListComponent,
+    ProductCardComponent,
+    ProductListComponent,
     TimeAgoPipe
   ]
 })

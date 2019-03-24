@@ -10,7 +10,7 @@
             <div class="col-sm-6">
                 <nav aria-label="breadcrumb" class="theme-breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a [routerLink]="'/home/one'">Home</a></li>
+                        <li class="breadcrumb-item"><a [routerLink]="'/home'">Home</a></li>
                         <li class="breadcrumb-item active" >login</li>
                     </ol>
                 </nav>
@@ -23,19 +23,21 @@
 <section class="login-page section-b-space">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-6" *ngIf="!isLoggedIn">
                 <h3>Login</h3>
                 <div class="theme-card">
-                    <form class="theme-form">
+                    <form class="theme-form" #loginForm="ngForm" (ngSubmit)="login()" >
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="text" class="form-control" id="email" placeholder="Email" required="">
+                            <label for="email">Username</label>
+                            <input class="form-control" type="text" name="username"
+                            placeholder="Username" required [(ngModel)]="model.username">
                         </div>
                         <div class="form-group">
                             <label for="review">Password</label>
-                            <input type="password" class="form-control" id="review" placeholder="Enter your password" required="">
+                            <input  class="form-control" type="password" name="password"
+                            required [(ngModel)]="model.password"id="review" placeholder="Enter your password">
                         </div>
-                        <button class="btn btn-solid">Login</button>
+                        <button [disabled]="!loginForm.valid" class="btn btn-solid">Login</button>
                     </form>
                 </div>
             </div>

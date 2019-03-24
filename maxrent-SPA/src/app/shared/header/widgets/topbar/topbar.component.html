@@ -7,18 +7,19 @@
         </ul>
       </div>
     </div>
-    <div class="col-lg-6 text-right" *ngIf="!productsService?.catalogMode">
+    <div class="col-lg-6 text-right" *ngIf="isLoggedIn; else elseBlock">
       <ul class="header-dropdown">
         <li class="onhover-dropdown mobile-account">
-          <i class="fa fa-user" aria-hidden="true"></i> {{ 'my-account' | translate }}
+          
+          <i class="fa fa-user" aria-hidden="true"></i> {{ userName }}
           <ul class="onhover-show-div">
             <li>
-              <a [routerLink]="'/login'" data-lng="en">
-                  {{ 'login' | translate }}
+              <a [routerLink]="'/myorders'" data-lng="en">
+                  {{ 'my-orders' | translate }}
               </a>
             </li>
             <li>
-              <a [routerLink]="'/home'" data-lng="es">
+              <a (click)="logout()" data-lng="es">
                   {{ 'logout' | translate }}
               </a>
             </li>
@@ -26,6 +27,29 @@
         </li>
       </ul>
     </div>
+    <ng-template #elseBlock>
+        <div class="col-lg-6 text-right">
+            <ul class="header-dropdown">
+              <li class="onhover-dropdown mobile-account">
+                
+                <i class="fa fa-user" aria-hidden="true"></i> {{ 'my-account' | translate }}
+                <ul class="onhover-show-div">
+                  <li>
+                    <a [routerLink]="'/login'" data-lng="en">
+                        {{ 'login' | translate }}
+                    </a>
+                  </li>
+                  <li>
+                    <a (click)="logout()" data-lng="es">
+                        {{ 'logout' | translate }}
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+    </ng-template>
+
 </div>
 
 

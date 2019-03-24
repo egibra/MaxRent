@@ -18,6 +18,8 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using MaxRent.API.Data;
 using Microsoft.EntityFrameworkCore;
+using MaxRent.API.Data.ProductRepository;
+using MaxRent.API.Services.ProductService;
 
 namespace MaxRent.API
 {
@@ -41,7 +43,9 @@ namespace MaxRent.API
                     Newtonsoft.Json.ReferenceLoopHandling.Ignore;
                 });
             services.AddScoped<IAuthRepository, AuthRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
             services.AddTransient<IUserService, UserService>(); 
+            services.AddTransient<IProductService, ProductService>();
             services.AddAutoMapper();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(
                 options =>
@@ -72,7 +76,12 @@ namespace MaxRent.API
 
             // app.UseHttpsRedirection();
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
-            app.UseMvc();
+            app.UseMvc(routes => {
+                routes.MapSpaFallbackRoute(
+                    name: "spa-fallback",
+                    defaults: new { controller = "Fallback", Action="Index"}
+                );
+            });
         }
     }
 }

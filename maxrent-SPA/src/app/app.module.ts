@@ -8,6 +8,7 @@ import { SharedModule } from './shared/shared.module';
 import { ToastrModule } from 'ngx-toastr';
 import { rootRouterConfig } from './app.routes';
 import { PaginationModule } from 'ngx-bootstrap';
+import { JwtModule } from '@auth0/angular-jwt';
 
 // import ngx-translate and the http loader
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
@@ -21,6 +22,9 @@ import { AdminModule } from './admin/admin.module';
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+export function tokenGetter() {
+  return localStorage.getItem('token');
 }
 
 @NgModule({
@@ -37,6 +41,13 @@ export function HttpLoaderFactory(http: HttpClient) {
     SharedModule,
     HttpClientModule,
     PaginationModule.forRoot(),
+    JwtModule.forRoot({
+      config: {
+          tokenGetter: tokenGetter,
+          whitelistedDomains: ['localhost:5000'],
+          blacklistedRoutes: ['localhost:5000/api/auth']
+      }
+  }),
     TranslateModule.forRoot({
         loader: {
             provide: TranslateLoader,

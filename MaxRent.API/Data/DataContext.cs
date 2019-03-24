@@ -9,5 +9,11 @@ namespace MaxRent.API.Data
         {
         }
         public DbSet<User> Users { get; set; }
+        public DbSet<Product> Products {get;set;}
+        public DbSet<ProductPhoto> Photos {get;set;}
+         protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<Product>().HasMany(i => i.Photos);
+        }
     }
 }

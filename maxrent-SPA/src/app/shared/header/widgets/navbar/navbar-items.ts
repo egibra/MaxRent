@@ -11,12 +11,6 @@ export interface Menu {
 
 export const MENUITEMS: Menu[] = [
 	{
-		title: 'Admin pages', type: 'sub', children: [
-				{ path: 'profit-chart', title: 'profit-chart', type: 'link'},
-				{ path: 'expenses-chart', title: 'expenses-chart', type: 'link'},
-		]
-	},
-	{
 		title: 'home', type: 'sub', children: [
 	      { path: 'home/one', title: 'Fashion-01', type: 'extTabLink' },          
 	      { path: 'home/two', title: 'Fashion-02', type: 'extTabLink'},         
@@ -35,27 +29,10 @@ export const MENUITEMS: Menu[] = [
 	    ]
 	},
 	{
-		title: 'features', type: 'sub', megaMenu: true, megaMenuType: 'small', children: [
-	      { path: '/blog/left-sidebar', title: 'blog-left-sidebar', image: 'assets/images/feature/blog-page.jpg', type: 'link' },
-	      { path: '/blog/right-sidebar', title: 'blog-right-sidebar', image: 'assets/images/feature/blog(right-sidebar).jpg', type: 'link' },
-	      { path: '/blog/details', title: 'blog-detail',  image: 'assets/images/feature/blog-detail.jpg', type: 'link' },
-	      { path: '/home/left-sidebar/collection/all', title: 'category-left-sidebar', image: 'assets/images/feature/category-page.jpg', type: 'link' },
-	      { path: '/home/right-sidebar/collection/all', title: 'category-right-sidebar', image: 'assets/images/feature/category-page(right).jpg', type: 'link' },
-	      { path: '/home/no-sidebar/collection/all', title: 'category-no-sidebar', image: 'assets/images/feature/category-page(no-sidebar).jpg', type: 'link' }
-	    ]
-	},
-	{
-		title: 'products', type: 'sub', megaMenu: true, megaMenuType: 'medium', children: [
-	      { path: '/home/left-sidebar/product/1', title: 'left-sidebar', image: 'assets/images/feature/product-page(left-sidebar).jpg', type: 'link' },
-	      { path: '/home/right-sidebar/product/1', title: 'right-sidebar', image: 'assets/images/feature/product-page(right-sidebar).jpg', type: 'link' },
-	      { path: '/home/no-sidebar/product/1', title: 'no-sidebar',  image: 'assets/images/feature/product-page(no-sidebar).jpg', type: 'link' },
-	      { path: '/home/col-left/product/1', title: '3-col-thumbnail-left', image: 'assets/images/feature/product-page(3-col-left).jpg', type: 'link' },
-	      { path: '/home/col-right/product/1', title: '3-col-thumbnail-right', image: 'assets/images/feature/product-page(3-col-right).jpg', type: 'link' },
-	      { path: '/home/column/product/1', title: 'thumbnail-below', image: 'assets/images/feature/product-page(3-column).jpg', type: 'link' },
-	      { path: '/home/accordian/product/1', title: 'accordian-details', image: 'assets/images/feature/product-page(accordian).jpg', type: 'link' },
-	      { path: '/home/left-image/product/1', title: 'thumbnail-left', image: 'assets/images/feature/product-page(left-image).jpg', type: 'link' },
-	      { path: '/home/right-image/product/1', title: 'thumbnail-right', image: 'assets/images/feature/product-page(right-image).jpg', type: 'link' },
-	      { path: '/home/vertical/product/1', title: 'vertical-tab', image: 'assets/images/feature/product-page(vertical-tab).jpg', type: 'link' }
+		title: 'admin-pages', type: 'sub', megaMenu: true, megaMenuType: 'small', children: [
+			{ path: 'expenses-chart', title: 'expenses-chart', type: 'link' },        
+			{ path: 'profit-chart', title: 'profit-chart', type: 'link' },        
+			{ path: 'expenses-list', title: 'expenses-list', type: 'link' },        
 	    ]
 	},
 	{

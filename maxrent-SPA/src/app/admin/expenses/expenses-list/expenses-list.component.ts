@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Expense } from 'src/app/_models/expense';
-import { Pagination, PaginatedResult } from 'src/app/_models/pagination';
+import { Expense } from '../../../_models/expense';
+import { Pagination, PaginatedResult } from '../../../_models/pagination';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { ExpensesService } from 'src/app/_services/expenses/expenses.service';
+import { ExpensesService } from '../../../_services/expenses/expenses.service';
 
 @Component({
   selector: 'app-expenses-list',
@@ -46,7 +46,6 @@ export class ExpensesListComponent implements OnInit {
     //   this.pagination = data['expenses'].pagination;
     // });
   }
-  get f() { return this.expenseForm.controls; }
 
   pageChanged(event: any): void {
     this.pagination.currentPage = event.page;

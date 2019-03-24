@@ -16,16 +16,15 @@ export class ProductBoxHoverComponent implements OnInit {
 
   @Input() product: Product;
 
-  constructor(private router: Router, public productsService: ProductsService, 
-    private wishlistService: WishlistService, private cartService: CartService) { 
-  }
+  constructor(private router: Router, public productsService: ProductsService,
+    private wishlistService: WishlistService, private cartService: CartService) {}
 
   ngOnInit() {
   }
 
   // Add to cart
   public addToCart(product: Product,  quantity: number = 1) {
-    this.cartService.addToCart(product,quantity);
+    this.cartService.addToCart(product, quantity);
   }
 
   // Add to compare
