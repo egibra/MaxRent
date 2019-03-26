@@ -1,7 +1,7 @@
 <div class="img-wrapper">
     <div class="ribbon" *ngIf='product.new'><span>new</span></div>
     <div class="front">
-        <a [routerLink]="['/accordian/product', product.id]"><img [src]="product.pictures[0]" class="img-fluid" alt=""></a>
+        <a [routerLink]="['/accordian/product', product.id]"><img [src]="product.photos[0].url" class="img-fluid" alt=""></a>
     </div>
     <div class="cart-info cart-wrap" *ngIf="!productsService?.catalogMode">
         <!-- <a [routerLink]="" (click)="addToWishlist(product)" title="Add to Wishlist">
@@ -28,5 +28,5 @@
     <a [routerLink]="['/home/accordian/product', product.id]">
     	<h6>{{product.name}}</h6>
     </a>
-    <h4 *ngIf="!productsService?.catalogMode">{{product.price | currency:productsService?.currency:'symbol'}}</h4>
+    <h4>{{product.priceForWeek}} €</h4>
 </div>

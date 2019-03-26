@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Product } from '../../shared/classes/product';
-import { ProductsService } from '../../shared/services/products.service';
+import { ProductsService } from 'src/app/_services/products/products.service';
 declare var $: any;
 
 @Component({
@@ -13,16 +13,12 @@ export class HomeComponent implements OnInit {
 
   public products: Product[] = [];
 
-  constructor(private productsService: ProductsService) {   }
+  constructor(private _productsService: ProductsService) {   }
 
   ngOnInit() {
-    this.productsService.getProducts().subscribe(product => {
-    product.filter((item: Product) => {
-         if (item.category === 'marijuana') {
-            this.products.push(item);
-         }
+    this._productsService.getAllProducts().subscribe(products => {
+        this.products = products;
       });
-    });
   //    document.getElementsByClassName('header-type')[0].classList.add('green-gradient');
   //    document.getElementsByClassName('footer-type')[0].classList.add('footer-5');
   //    // Change Heder logo

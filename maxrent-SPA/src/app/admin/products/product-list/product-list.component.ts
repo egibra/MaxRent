@@ -21,8 +21,10 @@ export class ProductListComponent implements OnInit {
     private formBuilder: FormBuilder, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.pagination = new Pagination();
     this.pagination.currentPage = 1;
     this.pagination.itemsPerPage = 5;
+    this.loadProducts();
     this.productForm = this.formBuilder.group({
       title: ['', [Validators.required, , Validators.maxLength(20)]],
       content: ['', [Validators.required, Validators.maxLength(255)]],

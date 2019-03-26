@@ -15,6 +15,17 @@ export class ProductsService {
 
   constructor(private http: HttpClient) { }
 
+  getAllProducts(): Observable<Product[]> {
+    let products: Product[];
+
+      return this.http.get<Product[]>(this.baseUrl + 'product/GetAllProducts', { observe: 'response'}).pipe(map(
+        response => {
+            products = response.body;
+            return products;
+          }
+      ));
+  }
+
   getPaginatedProducts(page?, itemsPerPage?): Observable<PaginatedResult<Product[]>> {
     const paginatedResult: PaginatedResult<Product[]> = new PaginatedResult<Product[]>();
     let params = new HttpParams();
@@ -24,7 +35,7 @@ export class ProductsService {
       params = params.append('pageSize', itemsPerPage);
     }
 
-    return this.http.get<Product[]>(this.baseUrl + 'products/GetAllProductsWithPagination', { observe: 'response', params}).pipe(
+    return this.http.get<Product[]>(this.baseUrl + 'product/GetAllProductsWithPagination', { observe: 'response', params}).pipe(
       map(response => {
         paginatedResult.result = response.body;
         if (response.headers.get('Pagination') != null) {

@@ -48,18 +48,19 @@ namespace MaxRent.API.Controllers
         }
 
         [HttpGet("GetAllProductsWithPagination")]
-        public async Task<IActionResult> GetAllProductsWithPagination(UserParams userParams)
+        public async Task<IActionResult> GetAllProductsWithPagination([FromQuery]UserParams userParams)
         {
             var paginatedProducts = await _productService.GetAllProductsWithPagination(userParams);
+            Response.AddPagination(paginatedProducts.CurrentPage, paginatedProducts.PageSize, 
+            paginatedProducts.TotalCount, paginatedProducts.TotalPages);
             return Ok(paginatedProducts);
         }
-
-        [HttpGet("GetProductsByGroupCode")]
-        public async Task<IActionResult> GetProductsByGroupCode([FromQuery]string groupCode)
-        {
-            var products = await _productService.GetProductsByGroupCode(groupCode);
-            return Ok(products);
-        }
+        // [HttpGet("GetProductsByGroupCode")]
+        // public async Task<IActionResult> GetProductsByGroupCode([FromQuery]string groupCode)
+        // {
+        //     var products = await _productService.GetProductsByGroupCode(groupCode);
+        //     return Ok(products);
+        // }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProduct(int id)
