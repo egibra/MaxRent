@@ -1,11 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Product } from '../../../shared/classes/product';
 import { CartItem } from '../../../shared/classes/cart-item';
 import { ProductsService } from '../../../shared/services/products.service';
 import { WishlistService } from '../../../shared/services/wishlist.service';
 import { CartService } from '../../../shared/services/cart.service';
 import { Observable, of } from 'rxjs';
+import { Product } from 'src/app/_models/product';
 
 @Component({
   selector: 'app-product-box-hover',

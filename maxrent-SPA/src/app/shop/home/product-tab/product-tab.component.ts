@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Product } from '../../../shared/classes/product';
+import { Product } from '../../../_models/product';
 declare var $: any;
 
 
@@ -10,7 +10,7 @@ declare var $: any;
 })
 export class ProductTabComponent implements OnInit {
 
-  @Input() products: Product;
+  @Input() products: Product[];
 
   constructor() { }
 

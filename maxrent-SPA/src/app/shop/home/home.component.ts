@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { Product } from '../../shared/classes/product';
 import { ProductsService } from 'src/app/_services/products/products.service';
+import { Product } from '../../_models/product';
 declare var $: any;
 
 @Component({
@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this._productsService.getAllProducts().subscribe(products => {
         this.products = products;
+        console.log(this.products);
       });
   //    document.getElementsByClassName('header-type')[0].classList.add('green-gradient');
   //    document.getElementsByClassName('footer-type')[0].classList.add('footer-5');

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../../../../shared/classes/product';
-import { ProductsService } from '../../../../shared/services/products.service';
+import { ProductsService } from 'src/app/_services/products/products.service';
+import { Product } from 'src/app/_models/product';
 
 @Component({
   selector: 'app-related-products',
@@ -10,11 +10,11 @@ import { ProductsService } from '../../../../shared/services/products.service';
 export class RelatedProductsComponent implements OnInit {
 
   public products: Product[] = [];
-  
+
   constructor(private productsService: ProductsService) { }
 
   ngOnInit() {
-  	this.productsService.getProducts().subscribe(product => this.products = product);
+    this.productsService.getAllProducts().subscribe(product => this.products = product);
   }
 
 }

@@ -10,24 +10,24 @@
                         </div>
                         <ul  class="tabs tab-title">
                             <li class="current">
-                                <a href="tab-1">{{'gopro-cameras' | translate}}</a>
+                                <a href="tab-1">{{'electric-scooters' | translate}}</a>
                             </li>
                             <li class="">
-                                <a href="tab-2">{{'electric-scooters' | translate}}</a>
+                                <a href="tab-2">{{'gopro-cameras' | translate}}</a>
                             </li>
                         </ul>
                     </div>
                     <div class="tab-content-cls">
                         <div id="tab-1" class="tab-content active default">
                           <div class="no-slider row">
-                              <div class="product-box product-wrap" *ngFor="let product of products | slice:0:4">
+                              <div class="product-box product-wrap" *ngFor="let product of products | slice:4:8">
                                  <app-product-box-hover [product]="product"></app-product-box-hover>
                               </div>
                             </div>
                         </div>
                         <div id="tab-2" class="tab-content">
                           <div class="no-slider row">
-                            <div class="product-box product-wrap" *ngFor="let product of products | slice:4:8">
+                            <div class="product-box product-wrap" *ngFor="let product of products | slice:0:4">
                                  <app-product-box-hover [product]="product"></app-product-box-hover>
                               </div>
                             </div>

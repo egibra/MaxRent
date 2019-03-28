@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Product } from '../../../shared/classes/product';
+import { Product } from 'src/app/_models/product';
 
 @Component({
   selector: 'app-product-slider',
@@ -8,7 +8,7 @@ import { Product } from '../../../shared/classes/product';
 })
 export class ProductSliderComponent implements OnInit {
 
-  @Input() products: Product;
+  @Input() products: Product[];
 
   constructor() { }
 
@@ -20,8 +20,8 @@ export class ProductSliderComponent implements OnInit {
   public productSlideConfig: any = {
     infinite: true,
     speed: 300,
-    slidesToShow: 5,
-    slidesToScroll: 5,
+    slidesToShow: 4,
+    slidesToScroll: 4,
     autoplay: true,
     autoplaySpeed: 3000,
     responsive: [{

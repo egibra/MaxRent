@@ -46,6 +46,12 @@ namespace MaxRent.API.Controllers
             var products = await _productService.GetAllProducts();
             return Ok(products);
         }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetProductById(int id)
+        {
+            var product = await _productService.GetProduct(id);
+            return Ok(product);
+        }
 
         [HttpGet("GetAllProductsWithPagination")]
         public async Task<IActionResult> GetAllProductsWithPagination([FromQuery]UserParams userParams)

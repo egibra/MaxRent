@@ -38,6 +38,7 @@ import { ExpensesChartComponent } from './admin/expenses/expenses-chart/expenses
 import { ExpensesListComponent } from './admin/expenses/expenses-list/expenses-list.component';
 import { MyOrdersComponent } from './pages/my-orders/my-orders.component';
 import { ProductListComponent } from './admin/products/product-list/product-list.component';
+import { ProductViewResolver } from './_resolvers/product-view.resolver';
 
 export const rootRouterConfig: Routes = [
   {
@@ -83,7 +84,9 @@ export const rootRouterConfig: Routes = [
   },
   {
     path: 'accordian/product/:id',
-    component: ProductAccordianComponent
+    runGuardsAndResolvers: 'always',
+    component: ProductAccordianComponent,
+    resolve: { product: ProductViewResolver }
   },
   {
     path: 'wishlist',

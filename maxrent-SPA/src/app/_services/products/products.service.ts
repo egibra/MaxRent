@@ -45,8 +45,10 @@ export class ProductsService {
       })
     );
   }
-
+  getProductById(id): Observable<Product> {
+    return this.http.get<Product>(this.baseUrl + 'product/' + id);
+  }
   deleteProduct(id: string) {
-    return this.http.delete(this.baseUrl + id);
+    return this.http.delete(this.baseUrl + 'product/' + id);
   }
 }

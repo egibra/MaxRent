@@ -12,6 +12,7 @@ import { ProductCompareComponent } from './product/product-compare/product-compa
 import { CartComponent } from './product/cart/cart.component';
 import { CheckoutComponent } from './product/checkout/checkout.component';
 import { SuccessComponent } from './product/success/success.component';
+import { ProductViewResolver } from '../_resolvers/product-view.resolver';
 
 // Routes
 const routes: Routes = [
@@ -34,10 +35,6 @@ const routes: Routes = [
   {
     path: 'column/product/:id',
     component: ProductColumnComponent
-  },
-  {
-    path: 'accordian/product/:id',
-    component: ProductAccordianComponent
   },
   {
     path: 'wishlist',

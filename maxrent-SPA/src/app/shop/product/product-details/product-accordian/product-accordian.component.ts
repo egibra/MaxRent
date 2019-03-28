@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router} from '@angular/router';
-import { Product } from '../../../../shared/classes/product';
-import { ProductsService } from '../../../../shared/services/products.service';
 import { WishlistService } from '../../../../shared/services/wishlist.service';
 import { CartService } from '../../../../shared/services/cart.service';
+import { Product } from 'src/app/_models/product';
+import { ProductsService } from 'src/app/_services/products/products.service';
 
 @Component({
   selector: 'app-product-accordian',
@@ -12,7 +12,7 @@ import { CartService } from '../../../../shared/services/cart.service';
 })
 export class ProductAccordianComponent implements OnInit {
 
-  public product:   Product = {};
+  public product:   Product;
   public products:   Product[] = [];
   public counter = 1;
   public selectedSize:   any = '';
@@ -21,14 +21,18 @@ export class ProductAccordianComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router,
     public productsService: ProductsService, private wishlistService: WishlistService,
     private cartService: CartService) {
-      this.route.params.subscribe(params => {
-        const id = +params['id'];
-        this.productsService.getProduct(id).subscribe(product => this.product = product);
-      });
   }
 
   ngOnInit() {
-    this.productsService.getProducts().subscribe(product => this.products = product);
+    this.route.data.subscribe(data => {
+      this.product = data['product'];
+    });
+    // this.route.params.subscribe(params => {
+    //   const id = +params['id'];
+    //   console.log(id);
+    //   this.productsService.getProductById(id).subscribe(product => this.product = product);
+    // });
+    this.productsService.getAllProducts().subscribe(product => this.products = product);
   }
 
   // tslint:disable-next-line:member-ordering

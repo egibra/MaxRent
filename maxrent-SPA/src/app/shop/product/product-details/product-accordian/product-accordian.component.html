@@ -26,9 +26,9 @@
             <div class="row">
                 <div class="col-lg-4">
                     <ngx-slick-carousel class="product-slick" #slickModal="slick-carousel" [config]="slideConfig">
-                        <div ngxSlickItem *ngFor="let image of product.pictures">
+                         <div ngxSlickItem *ngFor="let photo of product.photos">
                           <div>
-                            <img src="https://res.cloudinary.com/dcsly7hhe/image/upload/v1541960356/li8qd74jzbhf41mh97vn.jpg" alt="" class="img-fluid">
+                            <img [src]="photo.url" alt="" class="img-fluid">
                           </div>
                         </div>
                     </ngx-slick-carousel>
@@ -36,9 +36,9 @@
                         <div class="col-12 p-0">
                             <ngx-slick-carousel class="slider-nav" #slickModal="slick-carousel" 
                                      [config]="slideNavConfig">
-                                <div ngxSlickItem *ngFor="let image of product.pictures">
+                                <div ngxSlickItem *ngFor="let photo of product.photos">
                                  <div>
-                                   <img src="https://res.cloudinary.com/dcsly7hhe/image/upload/v1541960356/li8qd74jzbhf41mh97vn.jpg"
+                                   <img [src]="photo.url"
                                     alt="" class="img-fluid">
                                  </div>
                                 </div>
@@ -83,25 +83,24 @@
                                         </div>
                                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                                             <div class="card-body">
-                                                <p>{{product.shortDetails}}</p>
+                                                <p>{{product.description}}</p>
                                                 <div class="single-product-tables detail-section">
                                                     <table>
                                                         <tbody><tr>
-                                                            <td>Febric:</td>
-                                                            <td>Chiffon</td>
+                                                            <td>Kaina už dieną:</td>
+                                                            <td>{{product.priceForDay}} $</td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Color:</td>
-                                                            <td>Yellow</td>
+                                                            <td>Kaina už savaitgalį:</td>
+                                                            <td>{{product.priceForWeekend }} $</td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Material:</td>
-                                                            <td>Crepe printed</td>
+                                                            <td>Kaina už savaitę:</td>
+                                                            <td>{{product.priceForWeek}} $</td>
                                                         </tr>
-                                                        <tr *ngIf="!productsService?.catalogMode">
+                                                        <tr>
                                                             <td>Avalibility:</td>
-                                                            <td *ngIf="counter <= product.stock">In Stock</td>
-                                                            <td *ngIf="counter > product.stock">Out of Stock</td>
+                                                            <td>In Stock</td>
                                                         </tr>
                                                         </tbody>
                                                     </table>
@@ -120,22 +119,8 @@
                                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                                             <div class="card-body">
                                                 <div class="mt-2 text-center">
-                                                    <iframe width="100%" height="300" src="https://www.youtube.com/embed/BUWzX78Ye_8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                                    <iframe width="100%" height="300" [src]="product.youtubeUrl | safe" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header" id="headingThree">
-                                            <h5 class="mb-0">
-                                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                    review
-                                                </button>
-                                            </h5>
-                                        </div>
-                                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                                            <div class="card-body">
-                                                <p>no reviews yet</p>
                                             </div>
                                         </div>
                                     </div>
@@ -146,40 +131,9 @@
                 </div>
                 <div class="col-lg-4" *ngIf="!productsService?.catalogMode">
                     <div class="product-right product-form-box">
-                        <h4><del>{{product.salePrice | currency:productsService?.currency:'symbol'}}</del><span>{{product.discount}}% off</span></h4>
-                        <h3>{{product.price | currency:productsService?.currency:'symbol'}}</h3>
-                        <ul class="color-variant">
-                          <li [class]="variant.color" (click)="slickModal.slickGoTo(i)" *ngFor="let variant of product.variants let i = index"></li>
-                        </ul>
+                        <h4><del>{{product.priceForDay }}</del><span>20 % off</span></h4>
+                        <h3>{{product.priceForDay }}</h3>
                         <div class="product-description border-product">
-                            <h6 class="product-title">Time Reminder</h6>
-                            <div class="timer">
-                                <p id="timer">
-                                <span>25
-                                    <span class="padding-l">:</span>
-                                    <span class="timer-cal">Days</span>
-                                </span>
-                                <span>22
-                                    <span class="padding-l">:</span>
-                                    <span class="timer-cal">Hrs</span>
-                                </span>
-                                <span>13
-                                    <span class="padding-l">:</span>
-                                    <span class="timer-cal">Min</span>
-                                </span>
-                                <span>57
-                                    <span class="timer-cal">Sec</span>
-                                </span>
-                                </p>
-                            </div>
-                            <h6 class="product-title">select size</h6>
-                            <div class="size-box">
-                               <ul>
-                                <li [ngClass]="{'active': selectedSize == size}" *ngFor="let size of product.size">
-                                  <a [routerLink]="" (click)="changeSizeVariant(size)">{{size}}</a>
-                                </li>
-                              </ul>
-                            </div>
                             <h6 class="product-title">quantity</h6>
                             <div class="qty-box">
                                 <div class="input-group">
@@ -198,8 +152,7 @@
                             </div>
                         </div>
                         <div class="product-buttons">
-                            <a [routerLink]="" (click)="addToCart(product, counter)" class="btn btn-solid" [class.disabled]="counter > product.stock">add to cart</a>
-                            <a [routerLink]="" (click)="buyNow(product, qty.value)" class="btn btn-solid" [class.disabled]="counter > product.stock">buy now</a>
+                            <a [routerLink]="" (click)="addToCart(product, counter)" class="btn btn-solid">add to cart</a>
                         </div>
                     </div>
                 </div>
@@ -270,7 +223,7 @@
                 </div>
                 <div class="tab-pane fade" id="top-contact" role="tabpanel" aria-labelledby="contact-top-tab">
                     <div class="mt-3 text-center">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/BUWzX78Ye_8" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        <iframe width="560" height="315" [src]="product.youtubeUrl | safe" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="top-review" role="tabpanel" aria-labelledby="review-top-tab">

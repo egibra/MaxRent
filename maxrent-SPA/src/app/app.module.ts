@@ -18,6 +18,8 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { PagesModule } from './pages/pages.module';
 import { AdminModule } from './admin/admin.module';
+import { ProductViewResolver } from './_resolvers/product-view.resolver';
+import { SafePipe } from './_services/safe-pipe/safe-pipe';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -30,7 +32,7 @@ export function tokenGetter() {
 @NgModule({
   declarations: [
     AppComponent
-    ],
+      ],
   imports: [
     BrowserModule,
     HttpModule,
@@ -62,7 +64,7 @@ export function tokenGetter() {
     }),
     RouterModule.forRoot(rootRouterConfig)
   ],
-  providers: [],
+  providers: [ ProductViewResolver ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

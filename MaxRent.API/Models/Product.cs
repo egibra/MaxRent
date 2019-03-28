@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace MaxRent.API.Models
@@ -14,6 +15,7 @@ namespace MaxRent.API.Models
         public double PriceForWeekend { get; set; }
         public double PriceForWeek { get; set; }
         public string YoutubeUrl { get; set; }
+        public DateTime DatePurchased {get;set; }
         public ICollection<ProductPhoto> Photos { get; set; }
     }
 }
