@@ -4,6 +4,7 @@ import { WishlistService } from '../../../../shared/services/wishlist.service';
 import { CartService } from '../../../../shared/services/cart.service';
 import { Product } from 'src/app/_models/product';
 import { ProductsService } from 'src/app/_services/products/products.service';
+import { OrderItem } from 'src/app/_models/order-item';
 
 @Component({
   selector: 'app-product-accordian',
@@ -14,10 +15,15 @@ export class ProductAccordianComponent implements OnInit {
 
   public product:   Product;
   public products:   Product[] = [];
-  public counter = 1;
+  public assetsCount = 1;
   public selectedSize:   any = '';
-
-  // Get Product By Id
+  dateFormat = 'yyyy/MM/dd';
+  public start: Date = new Date ('2019-03-15');
+  public end: Date = new Date ('2019-04-07');
+  public locale = 'lt';
+  value: Date;
+  totalDays = 0;
+  totalPrice = 0;
   constructor(private route: ActivatedRoute, private router: Router,
     public productsService: ProductsService, private wishlistService: WishlistService,
     private cartService: CartService) {
@@ -27,14 +33,35 @@ export class ProductAccordianComponent implements OnInit {
     this.route.data.subscribe(data => {
       this.product = data['product'];
     });
-    // this.route.params.subscribe(params => {
-    //   const id = +params['id'];
-    //   console.log(id);
-    //   this.productsService.getProductById(id).subscribe(product => this.product = product);
-    // });
+
     this.productsService.getAllProducts().subscribe(product => this.products = product);
   }
 
+  onChange(newDates: Date) {
+    this.assetsCount = 1;
+    this.totalDays = newDates[1].getDate() - newDates[0].getDate() + 1;
+    this.value = newDates;
+    this.calculateTotalPrice();
+
+    console.log(this.value);
+  }
+
+  calculateTotalPrice() {
+    this.totalPrice = this.totalDays * this.product.priceForDay;
+    if (this.value[0].getDay() === 6 && this.value[1].getDay() === 0) {
+      this.totalPrice = this.product.priceForWeekend * this.assetsCount;
+    }
+
+    if (this.totalDays  === 7) {
+      this.totalPrice = this.product.priceForWeek * this.assetsCount;
+    }
+    if (this.totalDays > 7) {
+      const weeksCount = this.totalDays / 7;
+      const daysCount = this.totalDays - (weeksCount * 7);
+      this.totalPrice = (weeksCount * this.product.priceForWeek +
+                        daysCount * this.product.priceForDay) * this.assetsCount;
+    }
+ }  // tslin}t:disable-next-line:member-ordering
   // tslint:disable-next-line:member-ordering
   public slideConfig = {
     slidesToShow: 1,
@@ -55,30 +82,31 @@ export class ProductAccordianComponent implements OnInit {
   };
 
   public increment() {
-      this.counter += 1;
+      this.assetsCount += 1;
+      this.calculateTotalPrice();
   }
 
   public decrement() {
-      if (this.counter > 1) {
-          this.counter -= 1;
+      if (this.assetsCount >= 1) {
+          this.assetsCount -= 1;
+          this.calculateTotalPrice();
       }
   }
 
 
   // Add to cart
-  public addToCart(product: Product, quantity) {
+  public addToCart() {
      // tslint:disable-next-line:radix
-     this.cartService.addToCart(product, parseInt(quantity));
+     const orderItem: OrderItem = new OrderItem();
+     orderItem.product = this.product;
+     orderItem.assetsCount = this.assetsCount;
+     orderItem.dateFrom = this.value[0];
+     orderItem.dateTo = this.value[1];
+     orderItem.totalPrice = this.totalPrice;
+     this.cartService.addToCart(orderItem);
   }
 
-  // Add to cart
-  public buyNow(product: Product, quantity) {
-     if (quantity > 0) {
-       // tslint:disable-next-line:radix
-       this.cartService.addToCart(product, parseInt(quantity));
-     }
-       this.router.navigate(['/home/checkout']);
-  }
+
 
   // Add to wishlist
   public addToWishlist(product: Product) {

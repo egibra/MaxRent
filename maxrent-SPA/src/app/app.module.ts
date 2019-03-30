@@ -10,6 +10,7 @@ import { rootRouterConfig } from './app.routes';
 import { PaginationModule } from 'ngx-bootstrap';
 import { JwtModule } from '@auth0/angular-jwt';
 
+
 // import ngx-translate and the http loader
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';

@@ -4,14 +4,16 @@ using MaxRent.API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MaxRent.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20190330123042_AddedAssets")]
+    partial class AddedAssets
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,61 +38,6 @@ namespace MaxRent.API.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("Assets");
-                });
-
-            modelBuilder.Entity("MaxRent.API.Models.Order", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("CustomerAddress");
-
-                    b.Property<string>("CustomerName");
-
-                    b.Property<string>("CustomerNumber");
-
-                    b.Property<int>("UserId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Orders");
-                });
-
-            modelBuilder.Entity("MaxRent.API.Models.OrderItem", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("DateFrom");
-
-                    b.Property<DateTime>("DateTo");
-
-                    b.Property<int>("OrderId");
-
-                    b.Property<double>("TotalPrice");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("OrderId");
-
-                    b.ToTable("OrderItems");
-                });
-
-            modelBuilder.Entity("MaxRent.API.Models.OrderItemAsset", b =>
-                {
-                    b.Property<int>("AssetId");
-
-                    b.Property<int>("OrderItemId");
-
-                    b.HasKey("AssetId", "OrderItemId");
-
-                    b.HasIndex("OrderItemId");
-
-                    b.ToTable("OrderItemAsset");
                 });
 
             modelBuilder.Entity("MaxRent.API.Models.Product", b =>
@@ -169,35 +116,6 @@ namespace MaxRent.API.Migrations
                     b.HasOne("MaxRent.API.Models.Product", "AssignedProduct")
                         .WithMany("Assets")
                         .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("MaxRent.API.Models.Order", b =>
-                {
-                    b.HasOne("MaxRent.API.Models.User", "Customer")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("MaxRent.API.Models.OrderItem", b =>
-                {
-                    b.HasOne("MaxRent.API.Models.Order", "Order")
-                        .WithMany("OrderItems")
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("MaxRent.API.Models.OrderItemAsset", b =>
-                {
-                    b.HasOne("MaxRent.API.Models.Asset", "Asset")
-                        .WithMany("OrderItemAssets")
-                        .HasForeignKey("AssetId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("MaxRent.API.Models.OrderItem", "OrderItem")
-                        .WithMany("OrderItemAssets")
-                        .HasForeignKey("OrderItemId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

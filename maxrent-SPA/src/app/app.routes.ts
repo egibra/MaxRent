@@ -6,9 +6,6 @@ import { ProductAccordianComponent } from './shop/product/product-details/produc
 import { CollectionLeftSidebarComponent } from './shop/product/collection/collection-left-sidebar/collection-left-sidebar.component';
 import { CollectionRightSidebarComponent } from './shop/product/collection/collection-right-sidebar/collection-right-sidebar.component';
 import { CollectionNoSidebarComponent } from './shop/product/collection/collection-no-sidebar/collection-no-sidebar.component';
-import { ProductColumnComponent } from './shop/product/product-details/product-column/product-column.component';
-import { WishlistComponent } from './shop/product/wishlist/wishlist.component';
-import { ProductCompareComponent } from './shop/product/product-compare/product-compare.component';
 import { CartComponent } from './shop/product/cart/cart.component';
 import { CheckoutComponent } from './shop/product/checkout/checkout.component';
 import { SuccessComponent } from './shop/product/success/success.component';
@@ -79,22 +76,10 @@ export const rootRouterConfig: Routes = [
     component: CollectionNoSidebarComponent
   },
   {
-    path: 'column/product/:id',
-    component: ProductColumnComponent
-  },
-  {
     path: 'accordian/product/:id',
     runGuardsAndResolvers: 'always',
     component: ProductAccordianComponent,
     resolve: { product: ProductViewResolver }
-  },
-  {
-    path: 'wishlist',
-    component: WishlistComponent
-  },
-  {
-    path: 'compare',
-    component: ProductCompareComponent
   },
   {
     path: 'cart',
@@ -131,10 +116,6 @@ export const rootRouterConfig: Routes = [
   {
     path: 'search',
     component: SearchComponent
-  },
-  {
-    path: 'wishlist',
-    component: WishlistComponent
   },
   {
     path: 'cart',

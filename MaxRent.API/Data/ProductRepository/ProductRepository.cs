@@ -33,23 +33,26 @@ namespace MaxRent.API.Data.ProductRepository
 
         public async Task<ICollection<Product>> GetAllProducts()
         {
-            return await _dataContext.Products.Include(product => product.Photos).ToListAsync();
+            return await _dataContext.Products.Include(p => p.Assets).
+            Include(product => product.Photos).ToListAsync();
         }
 
         public async Task<PagedList<Product>> GetAllProductsWithPagination(UserParams userParams)
         {
-            var products = _dataContext.Products.Include(p => p.Photos);
+            var products = _dataContext.Products.Include(p => p.Assets).Include(p => p.Photos);
             return await PagedList<Product>.CreateAsync(products, userParams.PageNumber, userParams.PageSize);
         }
 
         public async Task<ICollection<Product>> GetProductsByGroupCode(string groupCode)
         {
-            var products = await _dataContext.Products.Include(p => p.Photos).Where(product => product.GroupCode == groupCode).ToListAsync();
+            var products = await _dataContext.Products.Include(p => p.Assets)
+            .Include(p => p.Photos).Where(product => product.GroupCode == groupCode).ToListAsync();
             return products;
         }
         public async Task<Product> GetProduct(int id)
         {
-            var product = await _dataContext.Products.Include(p => p.Photos).FirstOrDefaultAsync(p => p.Id == id);
+            var product = await _dataContext.Products.Include(p => p.Photos)
+            .Include(p => p.Assets).FirstOrDefaultAsync(p => p.Id == id);
             return product;
         }
         public async Task<bool> SaveAll()

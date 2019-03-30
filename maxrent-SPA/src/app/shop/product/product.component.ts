@@ -14,22 +14,17 @@ import { Observable, of } from 'rxjs';
 })
 
 export class ProductComponent implements OnInit {
-  
-  @Input() product : Product;
 
-  public variantImage  :  any = ''; 
-  public selectedItem  :  any = '';
+  @Input() product: Product;
 
-  constructor(private router: Router, public productsService: ProductsService, 
-    private wishlistService: WishlistService, private cartService: CartService) { 
+  public variantImage:  any = '';
+  public selectedItem:  any = '';
+
+  constructor(private router: Router, public productsService: ProductsService,
+    private wishlistService: WishlistService, private cartService: CartService) {
   }
 
   ngOnInit() {  }
-
-  // Add to cart
-  public addToCart(product: Product,  quantity: number = 1) {
-    this.cartService.addToCart(product,quantity);
-  }
 
   // Add to compare
   public addToCompare(product: Product) {
@@ -40,11 +35,11 @@ export class ProductComponent implements OnInit {
   public addToWishlist(product: Product) {
      this.wishlistService.addToWishlist(product);
   }
- 
+
  // Change variant images
   public changeVariantImage(image) {
      this.variantImage = image;
-     this.selectedItem = image; 
-  }  
+     this.selectedItem = image;
+  }
 
 }

@@ -5,10 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { CollectionLeftSidebarComponent } from './product/collection/collection-left-sidebar/collection-left-sidebar.component';
 import { CollectionRightSidebarComponent } from './product/collection/collection-right-sidebar/collection-right-sidebar.component';
 import { CollectionNoSidebarComponent } from './product/collection/collection-no-sidebar/collection-no-sidebar.component';
-import { ProductColumnComponent } from './product/product-details/product-column/product-column.component';
 import { ProductAccordianComponent } from './product/product-details/product-accordian/product-accordian.component';
-import { WishlistComponent } from './product/wishlist/wishlist.component';
-import { ProductCompareComponent } from './product/product-compare/product-compare.component';
 import { CartComponent } from './product/cart/cart.component';
 import { CheckoutComponent } from './product/checkout/checkout.component';
 import { SuccessComponent } from './product/success/success.component';
@@ -33,28 +30,8 @@ const routes: Routes = [
     component: CollectionNoSidebarComponent
   },
   {
-    path: 'column/product/:id',
-    component: ProductColumnComponent
-  },
-  {
-    path: 'wishlist',
-    component: WishlistComponent
-  },
-  {
-    path: 'compare',
-    component: ProductCompareComponent
-  },
-  {
     path: 'cart',
     component: CartComponent
-  },
-  {
-    path: 'checkout',
-    component: CheckoutComponent
-  },
-  {
-    path: 'checkout/success',
-    component: SuccessComponent
   }
 ];
 

@@ -12,7 +12,6 @@ import { CartComponent } from './cart/cart.component';
 import { CollectionComponent } from './collection/collection.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ContactComponent } from './contact/contact.component';
-import { CheckoutComponent } from './checkout/checkout.component';
 import { CompareComponent } from './compare/compare.component';
 import { OrderSuccessComponent } from './order-success/order-success.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -74,10 +73,6 @@ const routes: Routes = [
       {
         path: 'contact',
         component: ContactComponent
-      },
-      {
-        path: 'checkout',
-        component: CheckoutComponent
       },
       {
         path: 'compare',

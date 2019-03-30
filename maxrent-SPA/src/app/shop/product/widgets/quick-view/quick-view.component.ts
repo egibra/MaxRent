@@ -1,8 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Product } from '../../../../shared/classes/product';
-import { CartItem } from '../../../../shared/classes/cart-item';
-import { ProductsService } from '../../../../shared/services/products.service';
 import { CartService } from '../../../../shared/services/cart.service';
+import { Product } from 'src/app/_models/product';
+import { ProductsService } from 'src/app/_services/products/products.service';
 declare var $: any;
 
 @Component({
@@ -22,7 +21,7 @@ export class QuickViewComponent implements OnInit, OnDestroy {
   private cartService: CartService) { }
 
   ngOnInit() {
-    this.productsService.getProducts().subscribe(product => this.products = product);
+    this.productsService.getAllProducts().subscribe(product => this.products = product);
   }
 
   ngOnDestroy() {
@@ -49,11 +48,4 @@ export class QuickViewComponent implements OnInit, OnDestroy {
   public changeVariantSize(variant) {
      this.selectedSize = variant;
   }
-
-  public addToCart(product: Product, quantity) {
-    if (quantity === 0) { return false; }
-    // tslint:disable-next-line:radix
-    this.cartService.addToCart(product, parseInt(quantity));
-  }
-
 }

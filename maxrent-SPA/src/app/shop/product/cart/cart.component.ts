@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../../../shared/classes/product';
 import { CartItem } from '../../../shared/classes/cart-item';
-import { ProductsService } from '../../../shared/services/products.service';
 import { CartService } from '../../../shared/services/cart.service';
 import { Observable, of } from 'rxjs';
+import { OrderItem } from 'src/app/_models/order-item';
+import { ProductsService } from 'src/app/_services/products/products.service';
 
 @Component({
   selector: 'app-cart',
@@ -12,34 +12,24 @@ import { Observable, of } from 'rxjs';
 })
 export class CartComponent implements OnInit {
 
-  public cartItems          :   Observable<CartItem[]> = of([]);
-  public shoppingCartItems  :   CartItem[] = [];
- 
+  public cartItems:   Observable<OrderItem[]> = of([]);
+  public shoppingCartItems:   OrderItem[] = [];
+
   constructor(private productsService: ProductsService,
     private cartService: CartService) { }
 
   ngOnInit() {
-  	this.cartItems = this.cartService.getItems();
+    this.cartItems = this.cartService.getItems();
     this.cartItems.subscribe(shoppingCartItems => this.shoppingCartItems = shoppingCartItems);
   }
- 
-  // Increase Product Quantity
-  public increment(product: any, quantity: number = 1) {
-    this.cartService.updateCartQuantity(product,quantity);
-  }
-  
-  // Decrease Product Quantity
-  public decrement(product: any, quantity: number = -1) {
-    this.cartService.updateCartQuantity(product,quantity);
-  }
-  
+
   // Get Total
   public getTotal(): Observable<number> {
     return this.cartService.getTotalAmount();
   }
-  
+
   // Remove cart items
-  public removeItem(item: CartItem) {
+  public removeItem(item: OrderItem) {
     this.cartService.removeFromCart(item);
   }
 

@@ -5,6 +5,7 @@ import { WINDOW } from '../../services/windows.service';
 import { CartItem } from '../../classes/cart-item';
 import { CartService } from '../../services/cart.service';
 import { Observable, of } from 'rxjs';
+import { OrderItem } from 'src/app/_models/order-item';
 declare var $: any;
 
 @Component({
@@ -15,7 +16,7 @@ declare var $: any;
 })
 export class HeaderBaseComponent implements OnInit {
 
-  public shoppingCartItems:   CartItem[] = [];
+  public shoppingCartItems:   OrderItem[] = [];
 
   constructor(@Inject(DOCUMENT) private document: Document,
     @Inject(WINDOW) private window, private fix: LandingFixService, private cartService: CartService) {

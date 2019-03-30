@@ -17,6 +17,7 @@ export class AppComponent {
          if (event instanceof NavigationEnd) {
            this.url = event.url;
          }
+         window.scrollTo(0, 0);
    });
    }
 

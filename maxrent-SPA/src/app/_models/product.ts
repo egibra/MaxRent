@@ -1,4 +1,5 @@
 import { ProductPhoto } from './product-photo';
+import { Asset } from './asset';
 
 export class Product {
      id: number;
@@ -12,4 +13,5 @@ export class Product {
      priceForWeek: number;
      youtubeUrl: string;
      photos?: ProductPhoto[];
+     assets?: Asset[];
 }

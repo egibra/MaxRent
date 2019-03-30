@@ -1,24 +1,4 @@
-<!-- breadcrumb start -->
-<div class="breadcrumb-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="page-title">
-                    <h2>product</h2>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <nav aria-label="breadcrumb" class="theme-breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a [routerLink]="'/home/one'">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">product</li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- breadcrumb End -->
+
 <!-- section start -->
 <section>
     <div class="collection-wrapper">
@@ -63,12 +43,6 @@
                                 <li><a href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
                                 <li><a href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a></li>
                             </ul>
-                            <form class="d-inline-block" *ngIf="!productsService?.catalogMode">
-                                <button class="wishlist-btn" (click)="addToWishlist(product)">
-                                    <i class="fa fa-heart"></i>
-                                    <span class="title-font">Add To WishList</span>
-                                </button>
-                            </form>
                         </div>
                         <div class="row product-accordion">
                             <div class="col-sm-12">
@@ -77,7 +51,7 @@
                                         <div class="card-header" id="headingOne">
                                             <h5 class="mb-0">
                                                 <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                    product description
+                                                    Įrangos aprašymas
                                                 </button>
                                             </h5>
                                         </div>
@@ -88,19 +62,15 @@
                                                     <table>
                                                         <tbody><tr>
                                                             <td>Kaina už dieną:</td>
-                                                            <td>{{product.priceForDay}} $</td>
+                                                            <td>{{product.priceForDay | number: '1.2-2'}} €</td>
                                                         </tr>
                                                         <tr>
                                                             <td>Kaina už savaitgalį:</td>
-                                                            <td>{{product.priceForWeekend }} $</td>
+                                                            <td>{{product.priceForWeekend | number: '1.2-2' }} €</td>
                                                         </tr>
                                                         <tr>
                                                             <td>Kaina už savaitę:</td>
-                                                            <td>{{product.priceForWeek}} $</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Avalibility:</td>
-                                                            <td>In Stock</td>
+                                                            <td>{{product.priceForWeek | number: '1.2-2'}} €</td>
                                                         </tr>
                                                         </tbody>
                                                     </table>
@@ -112,7 +82,7 @@
                                         <div class="card-header" id="headingTwo">
                                             <h5 class="mb-0">
                                                 <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                    details
+                                                    Video
                                                 </button>
                                             </h5>
                                         </div>
@@ -131,18 +101,31 @@
                 </div>
                 <div class="col-lg-4" *ngIf="!productsService?.catalogMode">
                     <div class="product-right product-form-box">
-                        <h4><del>{{product.priceForDay }}</del><span>20 % off</span></h4>
-                        <h3>{{product.priceForDay }}</h3>
+                        <h4><del>{{product.priceForDay * 1.2 | number : '1.2-2' }}€</del><span>20 % nuolaida</span></h4>
+                        <h3>{{product.priceForDay | number: '1.2-2' }}€</h3>
                         <div class="product-description border-product">
-                            <h6 class="product-title">quantity</h6>
+                            <h6 class="product-title">Data nuo - iki</h6>
+                            <div class="qty-box">
+                                <div class="input-group">
+                                <span>
+                                    <ejs-daterangepicker id='daterangepicker' [format]="dateFormat" (ngModelChange)="onChange($event)" [(ngModel)]='value' 
+                                     placeholder='Pasirinkite'></ejs-daterangepicker>
+                                   </span>
+                                </div>
+                            </div>
+                            <h6 class="product-title">Iš viso</h6>
+                            <div>
+                                <span> {{ totalPrice | number : '1.2-2' }}</span>
+                            </div>
+                            <h6 class="product-title">Kiekis</h6>
                             <div class="qty-box">
                                 <div class="input-group">
                                   <span class="input-group-prepend">
                                     <button type="button" (click)="decrement()" class="btn quantity-left-minus" data-type="minus" data-field="">
                                      <i class="ti-angle-left"></i>
-                                    </button>
+                                    </button>   
                                   </span>
-                                  <input type="text" name="quantity" disabled class="form-control input-number" value="{{counter}}">
+                                  <input type="text" name="quantity" disabled class="form-control input-number" value="{{assetsCount}}">
                                   <span class="input-group-prepend">
                                     <button type="button" (click)="increment()" class="btn quantity-right-plus" data-type="plus" data-field="">
                                     <i class="ti-angle-right"></i>
@@ -152,7 +135,7 @@
                             </div>
                         </div>
                         <div class="product-buttons">
-                            <a [routerLink]="" (click)="addToCart(product, counter)" class="btn btn-solid">add to cart</a>
+                            <button (click)="addToCart()" [disabled]="totalPrice === 0" class="btn btn-solid">Į krepšelį</button>
                         </div>
                     </div>
                 </div>
@@ -168,21 +151,13 @@
         <div class="col-sm-12 col-lg-12">
             <ul class="nav nav-tabs nav-material" id="top-tab" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active" id="top-home-tab" data-toggle="tab" href="#top-home" role="tab" aria-selected="true">Description</a>
-                    <div class="material-border"></div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="profile-top-tab" data-toggle="tab" href="#top-profile" role="tab" aria-selected="false">Details</a>
+                    <a class="nav-link active" id="top-home-tab" data-toggle="tab" href="#top-home" role="tab" aria-selected="true">Aprašymas</a>
                     <div class="material-border"></div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="contact-top-tab" data-toggle="tab" href="#top-contact" role="tab" aria-selected="false">Video</a>
                     <div class="material-border"></div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="review-top-tab" data-toggle="tab" href="#top-review" role="tab" aria-selected="false">Write Review</a>
-                    <div class="material-border"></div>
-                </li>
+                </li>   
             </ul>
             <div class="tab-content nav-material" id="top-tabContent">
                 <div class="tab-pane fade show active" id="top-home" role="tabpanel" aria-labelledby="top-home-tab">
@@ -190,81 +165,10 @@
                         {{product.description}}
                     </p>
                 </div>
-                <div class="tab-pane fade" id="top-profile" role="tabpanel" aria-labelledby="profile-top-tab">
-                    <p>
-                       {{product.description}}
-                    </p>
-                    <div class="single-product-tables">
-                        <table>
-                            <tbody><tr>
-                                <td>Febric</td>
-                                <td>Chiffon</td>
-                            </tr>
-                            <tr>
-                                <td>Color</td>
-                                <td>Red</td>
-                            </tr>
-                            <tr>
-                                <td>Material</td>
-                                <td>Crepe printed</td>
-                            </tr>
-                            </tbody></table>
-                        <table>
-                            <tbody><tr>
-                                <td>Length</td>
-                                <td>50 Inches</td>
-                            </tr>
-                            <tr>
-                                <td>Size</td>
-                                <td>S, M, L .XXL</td>
-                            </tr>
-                            </tbody></table>
-                    </div>
-                </div>
                 <div class="tab-pane fade" id="top-contact" role="tabpanel" aria-labelledby="contact-top-tab">
                     <div class="mt-3 text-center">
                         <iframe width="560" height="315" [src]="product.youtubeUrl | safe" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                     </div>
-                </div>
-                <div class="tab-pane fade" id="top-review" role="tabpanel" aria-labelledby="review-top-tab">
-
-                    <form class="theme-form">
-                        <div class="form-row">
-                            <div class="col-md-12 ">
-                                <div class="media">
-                                    <label>Rating</label>
-                                    <div class="media-body ml-3">
-                                        <div class="rating three-star">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="name">Name</label>
-                                <input type="text" class="form-control" id="name" placeholder="Enter Your name" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="email">Email</label>
-                                <input type="text" class="form-control" id="email" placeholder="Email" required>
-                            </div>
-                            <div class="col-md-12">
-                                <label for="review">Review Title</label>
-                                <input type="text" class="form-control" id="review" placeholder="Enter your Review Subjects" required>
-                            </div>
-                            <div class="col-md-12">
-                                <label for="review">Review Title</label>
-                                <textarea class="form-control" placeholder="Wrire Your Testimonial Here" id="exampleFormControlTextarea1" rows="6"></textarea>
-                            </div>
-                            <div class="col-md-12">
-                                <button class="btn btn-solid" type="submit">Submit YOur Review</button>
-                            </div>
-                        </div>
-                    </form>
                 </div>
             </div>
         </div>

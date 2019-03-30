@@ -4,6 +4,7 @@ import { CartItem } from '../../../../shared/classes/cart-item';
 import { CartService } from '../../../../shared/services/cart.service';
 import { ProductsService } from '../../../../shared/services/products.service';
 import { Observable, of } from 'rxjs';
+import { OrderItem } from 'src/app/_models/order-item';
 declare var $: any;
 
 @Component({
@@ -13,10 +14,10 @@ declare var $: any;
 })
 export class SettingsComponent implements OnInit {
 
-  @Input() shoppingCartItems:   CartItem[] = [];
+  @Input() shoppingCartItems:   OrderItem[] = [];
 
-  public show = false;
-
+  show = false;
+  showItems = true;
   constructor(private translate: TranslateService, private cartService: CartService,
    public productsService: ProductsService) { }
 
@@ -25,7 +26,14 @@ export class SettingsComponent implements OnInit {
   public updateCurrency(curr) {
     this.productsService.currency = curr;
   }
-
+  onShowItems(): void {
+    console.log('showing items');
+    this.showItems = true;
+  }
+  onHideItems(): void {
+    console.log('hidingItems');
+    this.showItems = false;
+  }
   public changeLanguage(lang) {
     this.translate.use(lang);
   }
@@ -42,7 +50,7 @@ export class SettingsComponent implements OnInit {
     return this.cartService.getTotalAmount();
   }
 
-  public removeItem(item: CartItem) {
+  public removeItem(item: OrderItem) {
     this.cartService.removeFromCart(item);
   }
 
