@@ -52,7 +52,8 @@ namespace MaxRent.API.Data.ProductRepository
         public async Task<Product> GetProduct(int id)
         {
             var product = await _dataContext.Products.Include(p => p.Photos)
-            .Include(p => p.Assets).FirstOrDefaultAsync(p => p.Id == id);
+            .Include(p => p.Assets).ThenInclude(asset => asset.OrderItemAssets)
+            .ThenInclude(asset => asset.OrderItem).ThenInclude(orderItem => orderItem.Order).FirstOrDefaultAsync(p => p.Id == id);
             return product;
         }
         public async Task<bool> SaveAll()

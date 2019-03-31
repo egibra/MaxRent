@@ -20,6 +20,11 @@ using MaxRent.API.Data;
 using Microsoft.EntityFrameworkCore;
 using MaxRent.API.Data.ProductRepository;
 using MaxRent.API.Services.ProductService;
+using MaxRent.API.Data.OrderRepository;
+using MaxRent.API.Services.OrderService;
+using MaxRent.API.Services.OrderFormattingService;
+using MaxRent.API.Services.OrderItemFormattingService;
+using MaxRent.API.Services.AssetAvailabilityService;
 
 namespace MaxRent.API
 {
@@ -44,8 +49,13 @@ namespace MaxRent.API
                 });
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddTransient<IUserService, UserService>(); 
             services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<IOrderService, OrderService>();
+            services.AddTransient<IOrderFormattingService, OrderFormattingService>();
+            services.AddTransient<IOrderItemFormattingService, OrderItemFormattingService>();
+            services.AddTransient<IAssetAvailabilityService, AssetAvailabilityService>();
             services.AddAutoMapper();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(
                 options =>

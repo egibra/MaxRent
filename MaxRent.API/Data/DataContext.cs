@@ -16,9 +16,11 @@ namespace MaxRent.API.Data
         public DbSet<OrderItem> OrderItems { get; set; }
          protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<Product>().HasMany(i => i.Photos);
-            builder.Entity<Product>().HasMany(i => i.Assets);
-            builder.Entity<Order>().HasMany(i => i.OrderItems);
+            builder.Entity<Product>().HasMany(product => product.Photos);
+            builder.Entity<Product>().HasMany(product => product.Assets);
+            builder.Entity<Order>().HasMany(order => order.OrderItems);
+            builder.Entity<Order>().Property(order => order.OrderState)
+            .HasDefaultValue(OrderStateEnum.Received);
 
             builder.Entity<OrderItemAsset>()
                 .HasKey(ois => new { ois.AssetId, ois.OrderItemId });

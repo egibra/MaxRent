@@ -15,7 +15,7 @@ namespace MaxRent.API.Models
         public double PriceForWeekend { get; set; }
         public double PriceForWeek { get; set; }
         public string YoutubeUrl { get; set; }
-        public ICollection<ProductPhoto> Photos { get; set; }
-        public ICollection<Asset> Assets { get; set; }
+        public List<ProductPhoto> Photos { get; set; }
+        public List<Asset> Assets { get; set; }
     }
 }

@@ -10,6 +10,6 @@ namespace MaxRent.API.Models
         public DateTime DatePurchased { get; set; }
         public int ProductId { get; set; }
         public Product AssignedProduct { get; set; }
-        public ICollection<OrderItemAsset> OrderItemAssets { get; set; }
+        public List<OrderItemAsset> OrderItemAssets { get; set; }
     }
 }
