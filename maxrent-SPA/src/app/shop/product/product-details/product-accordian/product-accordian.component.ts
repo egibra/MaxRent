@@ -5,6 +5,8 @@ import { CartService } from '../../../../shared/services/cart.service';
 import { Product } from 'src/app/_models/product';
 import { ProductsService } from 'src/app/_services/products/products.service';
 import { OrderItem } from 'src/app/_models/order-item';
+import { OrdersService } from 'src/app/_services/orders/orders.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product-accordian',
@@ -24,9 +26,10 @@ export class ProductAccordianComponent implements OnInit {
   value: Date;
   totalDays = 0;
   totalPrice = 0;
+  AvailableQuantity = 0;
   constructor(private route: ActivatedRoute, private router: Router,
-    public productsService: ProductsService, private wishlistService: WishlistService,
-    private cartService: CartService) {
+    public productsService: ProductsService, private cartService: CartService,
+    private ordersService: OrdersService, private toastrService: ToastrService) {
   }
 
   ngOnInit() {
@@ -42,8 +45,15 @@ export class ProductAccordianComponent implements OnInit {
     this.totalDays = newDates[1].getDate() - newDates[0].getDate() + 1;
     this.value = newDates;
     this.calculateTotalPrice();
-
-    console.log(this.value);
+    this.ordersService.getAvailableAssetsCount(this.product.id, this.value[0],
+    this.value[1]).subscribe(availableAssetsCount => {
+      this.AvailableQuantity = availableAssetsCount;
+      if (this.AvailableQuantity > 0) {
+        this.toastrService.success('Laisvos kameros: ' + this.AvailableQuantity);
+      } else {
+        this.toastrService.error('Laisvų kamerų pasirinktu laikotarpiu nėra.');
+      }
+    });
   }
 
   calculateTotalPrice() {
@@ -110,7 +120,6 @@ export class ProductAccordianComponent implements OnInit {
 
   // Add to wishlist
   public addToWishlist(product: Product) {
-     this.wishlistService.addToWishlist(product);
   }
 
   // Change variant

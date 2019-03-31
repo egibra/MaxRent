@@ -17,10 +17,12 @@ namespace MaxRent.API.Services.OrderService
            _orderRepository = orderRepository;
            _orderFormattingService = orderFormattingService;
         }
-        public async Task AddOrder(OrderForCreationDto orderForCreationDto)
+        public async Task<Order> AddOrder(OrderForCreationDto orderForCreationDto)
         {
             var order = await _orderFormattingService.BuildOrder(orderForCreationDto);
             await _orderRepository.AddOrder(order);
+
+            return order;
         }
 
         public async Task<bool> SaveAll()

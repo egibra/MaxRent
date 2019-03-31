@@ -32,17 +32,17 @@ namespace MaxRent.API.Controllers
         [HttpPost("AddOrder")]
         public async Task<IActionResult> AddOrder(OrderForCreationDto orderForCreationDto)
         {
-            await _orderService.AddOrder(orderForCreationDto);
+            var order =  await _orderService.AddOrder(orderForCreationDto);
             if (await _orderService.SaveAll())
             {
-                return Ok();
+                return Ok(order);
             }
             return NotFound();
         }
         
         [HttpGet("GetAvailableAssetsCount")]
-        public async Task<IActionResult> GetAvailableAssetsCount(int productId, DateTime dateFrom,
-                DateTime dateTo)
+        public async Task<IActionResult> GetAvailableAssetsCount([FromQuery]int productId,[FromQuery] DateTime dateFrom,
+                [FromQuery]DateTime dateTo)
         {
             var availableAssets = await _assetAvailabilityService.GetAvailableAssetsCount(productId, dateFrom, dateTo);
             return Ok(availableAssets);

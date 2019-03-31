@@ -38,7 +38,7 @@ export class CartService {
 
     if (canAddToCart) {
     orderItems.push(newOrderItem);
-    this.toastrService.success('This product has been added.');
+    this.toastrService.success('Produktas pridėtas.');
     localStorage.setItem('cartItem', JSON.stringify(orderItems));
     } else {
      const prod = orderItems.filter(orderItem => {
