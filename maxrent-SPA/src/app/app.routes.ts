@@ -154,38 +154,6 @@ export const rootRouterConfig: Routes = [
     component: TypographyComponent
   },
   {
-    path: 'faq',
-    component: FaqComponent
-  },
-  {
-    path: 'grid/two/column',
-    component: GridTwoColComponent
-  },
-  {
-    path: 'grid/three/column',
-    component: GridThreeColComponent
-  },
-  {
-    path: 'grid/four/column',
-    component: GridFourColComponent
-  },
-  {
-    path: 'grid/two/masonary',
-    component: MasonaryTwoGridComponent
-  },
-  {
-    path: 'grid/three/masonary',
-    component: MasonaryThreeGridComponent
-  },
-  {
-    path: 'grid/four/masonary',
-    component: MasonaryFourGridComponent
-  },
-  {
-    path: 'fullwidth/masonary',
-    component: MasonaryFullwidthComponent
-  },
-  {
     path: '**',
     redirectTo: '',
     pathMatch: 'full'

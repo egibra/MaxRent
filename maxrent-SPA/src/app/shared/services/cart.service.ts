@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject, Observable, Subscriber } from 'rxjs';
 import { map, filter } from 'rxjs/operators';
-import { OrderItem } from 'src/app/_models/order-item';
+import { OrderItemForCreation } from 'src/app/_models/order-item-for-creation';
 
 // Get product from Localstorage
-let orderItems: OrderItem [] = JSON.parse(localStorage.getItem('cartItem')) || [];
+let orderItems: OrderItemForCreation [] = JSON.parse(localStorage.getItem('cartItem')) || [];
 
 @Injectable({
   providedIn: 'root'
@@ -14,25 +14,25 @@ let orderItems: OrderItem [] = JSON.parse(localStorage.getItem('cartItem')) || [
 export class CartService {
 
   // Array
-  public cartItems:  BehaviorSubject<OrderItem[]> = new BehaviorSubject([]);
+  private _cartItemsSubject:  BehaviorSubject<OrderItemForCreation[]> = new BehaviorSubject([]);
   public observer:  Subscriber<{}>;
 
   constructor(private toastrService: ToastrService) {
-      this.cartItems.subscribe(newProducts => orderItems = newProducts);
+      this._cartItemsSubject.subscribe(newOrderItems => orderItems = newOrderItems);
   }
 
   // Get Products
-  public getItems(): Observable<OrderItem[]> {
+  public getItems(): Observable<OrderItemForCreation[]> {
     const itemsStream = new Observable(observer => {
       observer.next(orderItems);
       observer.complete();
     });
-    return <Observable<OrderItem[]>>itemsStream;
+    return <Observable<OrderItemForCreation[]>>itemsStream;
   }
 
 
   // Add to cart
-  public addToCart(newOrderItem: OrderItem): void {
+  public addToCart(newOrderItem: OrderItemForCreation): void {
     const canAddToCart = true;
    // canAddToCart = orderItems.filter(orderItem => orderItem.product.id === orderItem.product.id)[0] ? true : false;
 
@@ -51,17 +51,23 @@ export class CartService {
   }
 
   // Removed in cart
-  public removeFromCart(item: OrderItem): boolean {
+  removeFromCart(item: OrderItemForCreation): boolean {
     if (item === undefined) { return false; }
       const index = orderItems.indexOf(item);
       orderItems.splice(index, 1);
+      this._cartItemsSubject.next(orderItems);
       localStorage.setItem('cartItem', JSON.stringify(orderItems));
+  }
+  clearCart(): void {
+    orderItems.splice(0, orderItems.length);
+    this._cartItemsSubject.next(orderItems);
+    localStorage.setItem('cartItem', JSON.stringify(orderItems));
   }
 
   // Total amount
-  public getTotalAmount(): Observable<number> {
-    return this.cartItems.pipe(map((orderItem: OrderItem[]) => {
-      return orderItems.reduce((prev, curr: OrderItem) => {
+  getTotalAmount(): Observable<number> {
+    return this._cartItemsSubject.pipe(map((orderItem: OrderItemForCreation[]) => {
+      return orderItems.reduce((prev, curr: OrderItemForCreation) => {
         return prev + curr.totalPrice;
       }, 0);
     }));

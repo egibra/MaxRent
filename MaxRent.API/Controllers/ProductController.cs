@@ -59,6 +59,7 @@ namespace MaxRent.API.Controllers
             var paginatedProducts = await _productService.GetAllProductsWithPagination(userParams);
             Response.AddPagination(paginatedProducts.CurrentPage, paginatedProducts.PageSize, 
             paginatedProducts.TotalCount, paginatedProducts.TotalPages);
+
             return Ok(paginatedProducts);
         }
         // [HttpGet("GetProductsByGroupCode")]

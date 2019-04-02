@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MaxRent.API.Dtos;
@@ -22,7 +23,8 @@ namespace MaxRent.API.Services.OrderFormattingService
             order.CustomerAddress = orderForCreationDto.CustomerAddress;
             order.CustomerNumber = orderForCreationDto.CustomerNumber;
             order.OrderItems = new List<OrderItem>();
-
+            int seed = (int)DateTime.Now.Ticks;
+            order.OrderCode = "TRX000" + seed.ToString();
             foreach (var orderItemForCreation in orderForCreationDto.OrderItems)
             {
                 var orderItem =  await _orderItemFormattingService

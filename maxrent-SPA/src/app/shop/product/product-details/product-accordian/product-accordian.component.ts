@@ -4,9 +4,9 @@ import { WishlistService } from '../../../../shared/services/wishlist.service';
 import { CartService } from '../../../../shared/services/cart.service';
 import { Product } from 'src/app/_models/product';
 import { ProductsService } from 'src/app/_services/products/products.service';
-import { OrderItem } from 'src/app/_models/order-item';
 import { OrdersService } from 'src/app/_services/orders/orders.service';
 import { ToastrService } from 'ngx-toastr';
+import { OrderItemForCreation } from 'src/app/_models/order-item-for-creation';
 
 @Component({
   selector: 'app-product-accordian',
@@ -107,7 +107,7 @@ export class ProductAccordianComponent implements OnInit {
   // Add to cart
   public addToCart() {
      // tslint:disable-next-line:radix
-     const orderItem: OrderItem = new OrderItem();
+     const orderItem: OrderItemForCreation = new OrderItemForCreation();
      orderItem.product = this.product;
      orderItem.assetsCount = this.assetsCount;
      orderItem.dateFrom = this.value[0];

@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { PayPalConfig, PayPalEnvironment, PayPalIntegrationType } from 'ngx-paypal';
 import { CartService } from '../../../shared/services/cart.service';
 import { Observable, of } from 'rxjs';
-import { OrderItem } from 'src/app/_models/order-item';
 import { ProductsService } from 'src/app/_services/products/products.service';
-import { Order } from 'src/app/_models/order';
 import { OrderItemForApi } from 'src/app/_models/order-item-for-api';
 import { User } from 'src/app/_models/user';
 import { OrdersService } from 'src/app/_services/orders/orders.service';
 import { Router } from '@angular/router';
+import { OrderItemForCreation } from 'src/app/_models/order-item-for-creation';
+import { OrderForCreation } from 'src/app/_models/order-for-creation';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-checkout',
@@ -20,14 +20,15 @@ export class CheckoutComponent implements OnInit {
 
   // form group
   checkoutForm:  FormGroup;
-  cartItems:  Observable<OrderItem[]> = of([]);
-  checkOutItems:  OrderItem[] = [];
+  cartItems:  Observable<OrderItemForCreation[]> = of([]);
+  checkOutItems:  OrderItemForCreation[] = [];
   orderDetails:  any[] = [];
   amount:  number;
 
   // Form Validator
   constructor(private fb: FormBuilder, private cartService: CartService, private router: Router,
-    public productsService: ProductsService, private ordersService: OrdersService) {
+    private productsService: ProductsService, private ordersService: OrdersService,
+    private toastrService: ToastrService) {
     this.checkoutForm = this.fb.group({
       firstname: ['', [Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z ]+[a-zA-Z]$')]],
       phone: ['', [Validators.required, Validators.pattern('[0-9]+')]],
@@ -46,7 +47,7 @@ export class CheckoutComponent implements OnInit {
     return this.cartService.getTotalAmount();
   }
   orderItems() {
-    const order: Order = new Order();
+    const order: OrderForCreation = new OrderForCreation();
     const currentUser: User = JSON.parse(localStorage.getItem('user'));
 
     order.customerAddress = this.checkoutForm.get('address').value;
@@ -65,9 +66,12 @@ export class CheckoutComponent implements OnInit {
     });
     this.ordersService.addOrder(order).subscribe((response: Response) => {
          if (response.status === 200) {
-            localStorage.removeItem('cartItem');
-            this.router.navigate(['/checkout/success']);
+            this.cartService.clearCart();
+            this.router.navigate(['/order-success']);
+            this.toastrService.success('Sėkmingai užsakyta.');
          }
+        }, error => {
+          this.toastrService.error('Nepavyko užsakyti.');
         });
   }
 }

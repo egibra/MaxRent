@@ -1,6 +1,6 @@
 import { Product } from './product';
 
-export class OrderItem {
+export class OrderItemForCreation {
     product: Product;
     dateFrom: Date;
     dateTo: Date;

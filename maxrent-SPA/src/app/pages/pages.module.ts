@@ -29,6 +29,7 @@ import { MasonaryFourGridComponent } from './portfolio/masonary-four-grid/masona
 import { MasonaryFullwidthComponent } from './portfolio/masonary-fullwidth/masonary-fullwidth.component';
 import { FormsModule } from '@angular/forms';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
+import { PaginationModule } from 'ngx-bootstrap';
 
 @NgModule({
   imports: [
@@ -36,7 +37,8 @@ import { MyOrdersComponent } from './my-orders/my-orders.component';
     PagesRoutingModule,
     SlickCarouselModule,
     IsotopeModule,
-    FormsModule
+    FormsModule,
+    PaginationModule.forRoot()
   ],
   declarations: [
     AboutUsComponent,

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Order } from '../../../shared/classes/order';
-import { OrderService } from '../../../shared/services/order.service';
 
 @Component({
   selector: 'app-order-success',
@@ -8,13 +7,10 @@ import { OrderService } from '../../../shared/services/order.service';
   styleUrls: ['./success.component.scss']
 })
 export class SuccessComponent implements OnInit {
-  
-  public orderDetails : Order = {};
 
-  constructor(private orderService: OrderService) { }
+  constructor() { }
 
   ngOnInit() {
-  	this.orderDetails = this.orderService.getOrderItems();
   }
 
 }

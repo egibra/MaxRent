@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using MaxRent.API.Dtos;
+using MaxRent.API.Helpers;
 using MaxRent.API.Models;
 
 namespace MaxRent.API.Services.OrderService
@@ -8,6 +10,7 @@ namespace MaxRent.API.Services.OrderService
     {
          Task<Order> AddOrder(OrderForCreationDto orderForCreationDto);
          Task<bool> SaveAll();
+         Task<PagedList<OrderForUserViewDto>> GetUserOrders(UserParams userParams);
 
     }
 }

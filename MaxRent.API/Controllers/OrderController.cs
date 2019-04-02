@@ -8,6 +8,7 @@ using MaxRent.API.Models;
 using MaxRent.API.Services.AssetAvailabilityService;
 using MaxRent.API.Services.OrderService;
 using MaxRent.API.Services.ProductService;
+using MaxRent.API.Services.UserService;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -21,13 +22,15 @@ namespace MaxRent.API.Controllers
         private readonly ILogger<OrderController> _logger;
         private readonly IOrderService _orderService;
         private readonly IAssetAvailabilityService _assetAvailabilityService;
-        public OrderController(IOrderService orderService, IMapper mapper,
+        private readonly IUserService _userService;
+        public OrderController(IOrderService orderService, IMapper mapper, IUserService userService,
          ILogger<OrderController> logger, IAssetAvailabilityService assetAvailabilityService)
         {
             _logger = logger;
             _mapper = mapper;
             _orderService = orderService;
             _assetAvailabilityService = assetAvailabilityService;
+            _userService = userService;
         }
         [HttpPost("AddOrder")]
         public async Task<IActionResult> AddOrder(OrderForCreationDto orderForCreationDto)
@@ -46,6 +49,15 @@ namespace MaxRent.API.Controllers
         {
             var availableAssets = await _assetAvailabilityService.GetAvailableAssetsCount(productId, dateFrom, dateTo);
             return Ok(availableAssets);
+        }
+        [HttpGet("GetUserOrders")]
+        public async Task<IActionResult> GetUserOrders([FromQuery]UserParams userParams)
+        {
+            var ordersForUser = await _orderService.GetUserOrders(userParams);
+            Response.AddPagination(ordersForUser.CurrentPage, ordersForUser.PageSize, 
+            ordersForUser.TotalCount, ordersForUser.TotalPages);
+
+            return Ok(ordersForUser);
         }
     }
 }

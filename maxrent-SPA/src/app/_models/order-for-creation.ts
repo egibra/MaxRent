@@ -1,7 +1,6 @@
-import { OrderItem } from './order-item';
 import { OrderItemForApi } from './order-item-for-api';
 
-export class Order {
+export class OrderForCreation {
     customerName: string;
     customerNumber: string;
     customerAddress: string;

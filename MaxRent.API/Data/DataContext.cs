@@ -1,3 +1,4 @@
+using System;
 using MaxRent.API.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,7 +22,9 @@ namespace MaxRent.API.Data
             builder.Entity<Order>().HasMany(order => order.OrderItems);
             builder.Entity<Order>().Property(order => order.OrderState)
             .HasDefaultValue(OrderStateEnum.Received);
-
+            builder.Entity<Order>().Property(order => order.DateCreated)
+            .HasDefaultValue(DateTime.Now);
+            
             builder.Entity<OrderItemAsset>()
                 .HasKey(ois => new { ois.AssetId, ois.OrderItemId });
             builder.Entity<OrderItemAsset>()

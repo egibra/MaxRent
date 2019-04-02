@@ -23,7 +23,7 @@ export class ProductListComponent implements OnInit {
   ngOnInit() {
     this.pagination = new Pagination();
     this.pagination.currentPage = 1;
-    this.pagination.itemsPerPage = 5;
+    this.pagination.itemsPerPage = 4;
     this.loadProducts();
     this.productForm = this.formBuilder.group({
       title: ['', [Validators.required, , Validators.maxLength(20)]],
@@ -49,17 +49,6 @@ export class ProductListComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    // stop here if form is invalid
-    // if (this.productForm.invalid) {
-    //     return;
-    // }
-    // this.productsService.addproduct(this.productForm.value).subscribe((product: product) => {
-    //   this.loadproducts();
-    //   this.toastrService.success('product inserted successfully');
-
-    // }, error => {
-    //   this.toastrService.error(error);
-    // });
   }
 
 }

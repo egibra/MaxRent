@@ -4,7 +4,7 @@ import { CartItem } from '../../../../shared/classes/cart-item';
 import { CartService } from '../../../../shared/services/cart.service';
 import { ProductsService } from '../../../../shared/services/products.service';
 import { Observable, of } from 'rxjs';
-import { OrderItem } from 'src/app/_models/order-item';
+import { OrderItemForCreation } from 'src/app/_models/order-item-for-creation';
 declare var $: any;
 
 @Component({
@@ -14,7 +14,7 @@ declare var $: any;
 })
 export class SettingsComponent implements OnInit {
 
-  @Input() shoppingCartItems:   OrderItem[] = [];
+  @Input() shoppingCartItems:   OrderItemForCreation[] = [];
 
   show = false;
   showItems = true;
@@ -50,7 +50,7 @@ export class SettingsComponent implements OnInit {
     return this.cartService.getTotalAmount();
   }
 
-  public removeItem(item: OrderItem) {
+  public removeItem(item: OrderItemForCreation) {
     this.cartService.removeFromCart(item);
   }
 

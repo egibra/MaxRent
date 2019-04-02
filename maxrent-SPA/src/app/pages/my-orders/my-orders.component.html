@@ -1,3 +1,19 @@
-<p>
-  my-orders works!
-</p>
+<ul *ngIf="orders">
+  <li *ngFor="let order of orders">
+    <p>{{ order.customerName }} ( {{ order.orderCode }} )</p>
+        <div *ngFor="let orderItem of order.orderItems">
+            <p>
+               {{ orderItem.productName }}
+            </p>
+        </div>
+  </li>
+</ul>
+<div class="d-flex justify-content-center mb-2">
+<pagination [boundaryLinks]="true" 
+[totalItems]= "pagination.totalItems"
+[(ngModel)]="pagination.currentPage"
+[itemsPerPage]="pagination.itemsPerPage"
+(pageChanged)="pageChanged($event)"
+previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+</pagination>
+</div>

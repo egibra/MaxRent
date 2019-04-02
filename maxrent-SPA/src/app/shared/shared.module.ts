@@ -9,7 +9,6 @@ import { InstagramService } from './services/instagram.service';
 import { ProductsService } from './services/products.service';
 import { WishlistService } from './services/wishlist.service';
 import { CartService } from './services/cart.service';
-import { OrderService } from './services/order.service';
 import { PaginationService } from './classes/paginate';
 // Pipes
 import { OrderByPipe } from './pipes/order-by.pipe';
@@ -61,7 +60,6 @@ import { TimeAgoPipe } from 'time-ago-pipe';
     ProductsService,
     WishlistService,
     CartService,
-    OrderService,
     PaginationService
   ]
 })
