@@ -12,7 +12,21 @@ namespace MaxRent.API.Helpers
             orderForUser.CustomerAddress = order.CustomerAddress;
             orderForUser.CustomerName = order.CustomerName;
             orderForUser.CustomerNumber = order.CustomerNumber;
-            orderForUser.OrderState = order.OrderState;
+            switch (order.OrderState)
+            {
+                case(OrderStateEnum.Accepted):
+                     orderForUser.OrderState = "Patvirtinta.";
+                break;
+                case(OrderStateEnum.Completed): 
+                     orderForUser.OrderState = "Pabaigta.";
+                break;
+                case(OrderStateEnum.Received): 
+                     orderForUser.OrderState = "Priimta.";
+                break;
+                case(OrderStateEnum.Rejected): 
+                     orderForUser.OrderState = "Atmesta.";
+                break;
+            }
             orderForUser.OrderCode = order.OrderCode;
             orderForUser.OrderItems = new List<OrderItemForUserViewDto>();
             orderForUser.DateCreated = order.DateCreated;
@@ -25,8 +39,19 @@ namespace MaxRent.API.Helpers
                 orderItemForUserView.ProductName = orderItem.OrderItemAssets[0].Asset.AssignedProduct.Name;
                 orderItemForUserView.TotalPrice = orderItem.TotalPrice;
                 orderForUser.OrderItems.Add(orderItemForUserView);
+                orderForUser.TotalOrderSum += orderItemForUserView.TotalPrice;
             }
             return orderForUser;
+        }
+        public static AssetForAdminListViewDto GetAssetForAdminListViewDtoFromAsset(Asset asset)
+        {
+            AssetForAdminListViewDto dto = new AssetForAdminListViewDto();
+            dto.AssetId= asset.Id;
+            dto.AssetCode = asset.AssetCode;
+            dto.ProductName = asset.AssignedProduct.Name;
+            dto.PhotoUrl = asset.AssignedProduct.Photos[0].Url;
+
+            return dto;
         }
     }
 }

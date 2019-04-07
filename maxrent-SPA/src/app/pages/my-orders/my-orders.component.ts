@@ -19,7 +19,7 @@ export class MyOrdersComponent implements OnInit {
   ngOnInit() {
     this.pagination = new Pagination();
     this.pagination.currentPage = 1;
-    this.pagination.itemsPerPage = 4;
+    this.pagination.itemsPerPage = 3;
     this.loadOrders();
   }
 
@@ -35,6 +35,7 @@ export class MyOrdersComponent implements OnInit {
       this.pagination.itemsPerPage, currentUser.id).subscribe((res: PaginatedResult<OrderForUserView[]>) => {
         this.orders = res.result;
         this.pagination = res.pagination;
+        console.log(res.pagination);
         console.log(this.orders);
       }, error => {
         this.toastrService.error(error);

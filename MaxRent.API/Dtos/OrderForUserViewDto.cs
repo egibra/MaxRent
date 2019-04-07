@@ -11,8 +11,9 @@ namespace MaxRent.API.Dtos
         public string CustomerAddress { get; set; }
         public int UserId { get; set; }
         public DateTime DateCreated { get; set; }
-        public OrderStateEnum OrderState { get; set; }
+        public string OrderState { get; set; }
         public string OrderCode { get; set; }
+        public double TotalOrderSum { get; set; }
         public ICollection<OrderItemForUserViewDto> OrderItems { get; set; }           
     }
 }

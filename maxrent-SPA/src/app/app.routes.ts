@@ -23,19 +23,13 @@ import { OrderSuccessComponent } from './pages/order-success/order-success.compo
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { TypographyComponent } from './pages/typography/typography.component';
 import { FaqComponent } from './pages/faq/faq.component';
-import { GridTwoColComponent } from './pages/portfolio/grid-two-col/grid-two-col.component';
-import { GridThreeColComponent } from './pages/portfolio/grid-three-col/grid-three-col.component';
-import { GridFourColComponent } from './pages/portfolio/grid-four-col/grid-four-col.component';
-import { MasonaryTwoGridComponent } from './pages/portfolio/masonary-two-grid/masonary-two-grid.component';
-import { MasonaryThreeGridComponent } from './pages/portfolio/masonary-three-grid/masonary-three-grid.component';
-import { MasonaryFourGridComponent } from './pages/portfolio/masonary-four-grid/masonary-four-grid.component';
-import { MasonaryFullwidthComponent } from './pages/portfolio/masonary-fullwidth/masonary-fullwidth.component';
 import { ProfitChartComponent } from './admin/profit-chart/profit-chart.component';
 import { ExpensesChartComponent } from './admin/expenses/expenses-chart/expenses-chart.component';
 import { ExpensesListComponent } from './admin/expenses/expenses-list/expenses-list.component';
 import { MyOrdersComponent } from './pages/my-orders/my-orders.component';
-import { ProductListComponent } from './admin/products/product-list/product-list.component';
+import { AssetListComponent } from './admin/product-assets/asset-list/asset-list.component';
 import { ProductViewResolver } from './_resolvers/product-view.resolver';
+import { AssetDetailComponent } from './admin/product-assets/asset-detail/asset-detail.component';
 
 export const rootRouterConfig: Routes = [
   {
@@ -53,7 +47,11 @@ export const rootRouterConfig: Routes = [
   },
   {
     path: 'products-list',
-    component: ProductListComponent
+    component: AssetListComponent
+  },
+  {
+    path: 'products-list/asset-detail/:id',
+    component: AssetDetailComponent
   },
   {
     path: 'expenses-chart',
@@ -152,11 +150,7 @@ export const rootRouterConfig: Routes = [
   {
     path: 'typography',
     component: TypographyComponent
-  },
-  {
-    path: '**',
-    redirectTo: '',
-    pathMatch: 'full'
   }
+
 ];
 

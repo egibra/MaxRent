@@ -62,15 +62,15 @@ namespace MaxRent.API.Data.OrderRepository
             return await PagedList<Order>.CreateAsync(ordersForProduct, userParams.PageNumber, userParams.PageSize);
         }
 
-        public async Task<PagedList<Order>> GetOrdersForUser(UserParams userParams)
+        public async Task<List<Order>> GetOrdersForUser(UserParams userParams)
         {
-            var ordersForUser =  _dataContext.Orders
+            var ordersForUser = await  _dataContext.Orders
             .Where(order => order.UserId == userParams.UserId).Include(order => order.OrderItems)
             .ThenInclude(orderItem => orderItem.OrderItemAssets)
             .ThenInclude(orderItemAsset => orderItemAsset.Asset)
-            .ThenInclude(asset => asset.AssignedProduct);
+            .ThenInclude(asset => asset.AssignedProduct).ToListAsync();
 
-            return await PagedList<Order>.CreateAsync(ordersForUser, userParams.PageNumber, userParams.PageSize);
+            return ordersForUser;
         }
 
         public async Task<bool> SaveAll()

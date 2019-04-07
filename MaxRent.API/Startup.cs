@@ -25,6 +25,8 @@ using MaxRent.API.Services.OrderService;
 using MaxRent.API.Services.OrderFormattingService;
 using MaxRent.API.Services.OrderItemFormattingService;
 using MaxRent.API.Services.AssetAvailabilityService;
+using MaxRent.API.Data.AssetRepository;
+using MaxRent.API.Services.AssetService;
 
 namespace MaxRent.API
 {
@@ -50,8 +52,10 @@ namespace MaxRent.API
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IAssetRepository, AssetRepository>();
             services.AddTransient<IUserService, UserService>(); 
             services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<IAssetService, AssetService>();
             services.AddTransient<IOrderService, OrderService>();
             services.AddTransient<IOrderFormattingService, OrderFormattingService>();
             services.AddTransient<IOrderItemFormattingService, OrderItemFormattingService>();

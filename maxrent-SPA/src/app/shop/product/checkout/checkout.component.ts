@@ -59,7 +59,7 @@ export class CheckoutComponent implements OnInit {
       const itemForApi: OrderItemForApi = new OrderItemForApi();
       itemForApi.assetsCount = cartItem.assetsCount;
       itemForApi.dateFrom = cartItem.dateFrom.toDateString();
-      itemForApi.dateTo = cartItem.dateFrom.toDateString();
+      itemForApi.dateTo = cartItem.dateTo.toDateString();
       itemForApi.productId = cartItem.product.id;
       itemForApi.totalPrice = cartItem.totalPrice;
       order.orderItems.push(itemForApi);

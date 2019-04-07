@@ -9,8 +9,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { PaginationModule } from 'ngx-bootstrap';
-import { ProductCardComponent } from './products/product-card/product-card.component';
-import { ProductListComponent } from './products/product-list/product-list.component';
+import { AssetListComponent } from './product-assets/asset-list/asset-list.component';
+import { AssetDetailComponent } from './product-assets/asset-detail/asset-detail.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { ProductListComponent } from './products/product-list/product-list.compo
     ReactiveFormsModule,
     BrowserModule,
     HttpClientModule,
+    RouterModule,
     PaginationModule.forRoot()
 
   ],
@@ -27,8 +29,8 @@ import { ProductListComponent } from './products/product-list/product-list.compo
     ExpensesChartComponent,
     ProfitChartComponent,
     ExpensesListComponent,
-    ProductCardComponent,
-    ProductListComponent,
+    AssetListComponent,
+    AssetDetailComponent,
     TimeAgoPipe
   ]
 })

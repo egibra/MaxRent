@@ -20,13 +20,6 @@ import { OrderSuccessComponent } from './order-success/order-success.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FaqComponent } from './faq/faq.component';
 import { TypographyComponent } from './typography/typography.component';
-import { GridTwoColComponent } from './portfolio/grid-two-col/grid-two-col.component';
-import { GridThreeColComponent } from './portfolio/grid-three-col/grid-three-col.component';
-import { GridFourColComponent } from './portfolio/grid-four-col/grid-four-col.component';
-import { MasonaryTwoGridComponent } from './portfolio/masonary-two-grid/masonary-two-grid.component';
-import { MasonaryThreeGridComponent } from './portfolio/masonary-three-grid/masonary-three-grid.component';
-import { MasonaryFourGridComponent } from './portfolio/masonary-four-grid/masonary-four-grid.component';
-import { MasonaryFullwidthComponent } from './portfolio/masonary-fullwidth/masonary-fullwidth.component';
 import { FormsModule } from '@angular/forms';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { PaginationModule } from 'ngx-bootstrap';
@@ -57,13 +50,6 @@ import { PaginationModule } from 'ngx-bootstrap';
     DashboardComponent,
     FaqComponent,
     TypographyComponent,
-    GridTwoColComponent,
-    GridThreeColComponent,
-    GridFourColComponent,
-    MasonaryTwoGridComponent,
-    MasonaryThreeGridComponent,
-    MasonaryFourGridComponent,
-    MasonaryFullwidthComponent,
     MyOrdersComponent
   ]
 })

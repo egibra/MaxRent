@@ -6,7 +6,8 @@ export class OrderForUserView {
     customerAddress: number;
     userId: number;
     dateCreated: Date;
-    orderState: number;
+    orderState: string;
     orderCode: string;
+    totalOrderSum: string;
     orderItems?: OrderItemForUserView[];
 }

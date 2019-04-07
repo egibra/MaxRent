@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using MaxRent.API.Data.OrderRepository;
 using MaxRent.API.Dtos;
@@ -34,6 +35,8 @@ namespace MaxRent.API.Services.OrderService
             { 
                 ordersForUser.Add(MapperHelper.GetOrderForUserViewFromOrder(order));
             }
+            ordersForUser = ordersForUser.Skip((userParams.PageNumber-1) * userParams.PageSize)
+            .Take(userParams.PageSize).ToList();
             var pagedOrdersForUser = new PagedList<OrderForUserViewDto>(ordersForUser, orders.Count,
             userParams.PageNumber, userParams.PageSize);
             

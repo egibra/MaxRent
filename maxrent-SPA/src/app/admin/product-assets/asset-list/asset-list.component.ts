@@ -1,31 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from 'src/app/_models/product';
 import { Pagination, PaginatedResult } from 'src/app/_models/pagination';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute } from '@angular/router';
-import { ProductsService } from 'src/app/_services/products/products.service';
+import { AssetsService } from 'src/app/_services/assets/assets.service';
+import { AssetForAdminListView } from 'src/app/_models/asset-for-admin-list-view';
 
 @Component({
-  selector: 'app-product-list',
-  templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.scss']
+  selector: 'app-asset-list',
+  templateUrl: './asset-list.component.html',
+  styleUrls: ['./asset-list.component.scss']
 })
-export class ProductListComponent implements OnInit {
+export class AssetListComponent implements OnInit {
 
-  products: Product[];
+  assets: AssetForAdminListView[];
   pagination: Pagination;
-  productForm: FormGroup;
+  assetForm: FormGroup;
   submitted = false;
-  constructor(private toastrService: ToastrService, private productsService: ProductsService,
+  constructor(private toastrService: ToastrService, private assetsService: AssetsService,
     private formBuilder: FormBuilder, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.pagination = new Pagination();
     this.pagination.currentPage = 1;
     this.pagination.itemsPerPage = 4;
-    this.loadProducts();
-    this.productForm = this.formBuilder.group({
+    this.loadAssets();
+    this.assetForm = this.formBuilder.group({
       title: ['', [Validators.required, , Validators.maxLength(20)]],
       content: ['', [Validators.required, Validators.maxLength(255)]],
       email: ['', [Validators.required, Validators.email]]
@@ -34,13 +34,13 @@ export class ProductListComponent implements OnInit {
 
   pageChanged(event: any): void {
     this.pagination.currentPage = event.page;
-    this.loadProducts();
+    this.loadAssets();
   }
 
-  loadProducts() {
-    this.productsService.getPaginatedProducts(this.pagination.currentPage,
-      this.pagination.itemsPerPage).subscribe((res: PaginatedResult<Product[]>) => {
-        this.products = res.result;
+  loadAssets() {
+    this.assetsService.getPaginatedAssets(this.pagination.currentPage,
+      this.pagination.itemsPerPage).subscribe((res: PaginatedResult<AssetForAdminListView[]>) => {
+        this.assets = res.result;
         this.pagination = res.pagination;
       }, error => {
         this.toastrService.error(error);

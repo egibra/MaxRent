@@ -1,0 +1,19 @@
+
+
+
+<ul *ngIf="assets">
+  <li *ngFor="let asset of assets">
+      <img [src]="asset.photoUrl">
+      <p>{{ asset.productName }} ( {{ asset.assetCode }} )</p>
+      <button [routerLink]="['asset-detail/', asset.assetId]"></button>
+  </li>
+</ul>
+<div class="d-flex justify-content-center mb-2">
+<pagination [boundaryLinks]="true" 
+[totalItems]= "pagination.totalItems"
+[(ngModel)]="pagination.currentPage"
+[itemsPerPage]="pagination.itemsPerPage"
+(pageChanged)="pageChanged($event)"
+previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+</pagination>
+</div>
