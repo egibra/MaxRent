@@ -27,8 +27,15 @@ namespace MaxRent.API.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetAssetById(int id)
         {
-            var product = await _assetService.GetAssetById(id);
-            return Ok(product);
+            var asset = await _assetService.GetAssetById(id);
+            return Ok(asset);
+        }
+        
+        [HttpGet("{id}/GetAssetForDetailView")]
+        public async Task<IActionResult> GetAssetForDetailView(int id)
+        {
+            var asset = await _assetService.GetAssetForDetail(id);
+            return Ok(asset);
         }
 
         [HttpGet("GetAllAssetsWithPagination")]
@@ -39,6 +46,16 @@ namespace MaxRent.API.Controllers
             paginatedAssets.TotalCount, paginatedAssets.TotalPages);
 
             return Ok(paginatedAssets);
+        }
+
+        [HttpGet("{id}/GetAssetOrders")]
+        public async Task<IActionResult> GetAssetOrders(int id, [FromQuery]UserParams userParams)
+        {
+            var paginatedAssetOrders = await _assetService.GetAssetOrders(id, userParams);
+            Response.AddPagination(paginatedAssetOrders.CurrentPage, paginatedAssetOrders.PageSize, 
+            paginatedAssetOrders.TotalCount, paginatedAssetOrders.TotalPages);
+
+            return Ok(paginatedAssetOrders);
         }
 
         [HttpDelete("{id}")]

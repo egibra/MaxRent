@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using MaxRent.API.Dtos;
 using MaxRent.API.Models;
@@ -52,6 +53,33 @@ namespace MaxRent.API.Helpers
             dto.PhotoUrl = asset.AssignedProduct.Photos[0].Url;
 
             return dto;
+        }
+
+        internal static OrderForAssetDetailDto getAssetOrderFromOrderItem(OrderItem orderItem)
+        {
+            var order = new OrderForAssetDetailDto();
+            order.DateFrom = orderItem.DateFrom;
+            order.DateTo = orderItem.DateTo;
+            order.OrderCode = orderItem.Order.OrderCode;
+            switch (orderItem.Order.OrderState)
+            {
+                case(OrderStateEnum.Accepted):
+                     order.OrderState = "Patvirtinta.";
+                break;
+                case(OrderStateEnum.Completed): 
+                     order.OrderState = "Pabaigta.";
+                break;
+                case(OrderStateEnum.Received): 
+                     order.OrderState = "Priimta.";
+                break;
+                case(OrderStateEnum.Rejected): 
+                     order.OrderState = "Atmesta.";
+                break;
+            }
+            order.TotalSum = orderItem.TotalPrice / orderItem.OrderItemAssets.Count;
+            order.UserName = orderItem.Order.Customer.Username;
+            
+            return order;
         }
     }
 }

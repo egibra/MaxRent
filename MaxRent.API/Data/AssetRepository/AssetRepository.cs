@@ -36,6 +36,8 @@ namespace MaxRent.API.Data.AssetRepository
             .Include(a => a.OrderItemAssets)
             .ThenInclude(orderItems => orderItems.OrderItem)
             .ThenInclude(orderitem => orderitem.Order)
+            .ThenInclude(order => order.Customer)
+            .Include(a => a.Expenses)
             .FirstOrDefaultAsync(p => p.Id == id);
             
             return asset;

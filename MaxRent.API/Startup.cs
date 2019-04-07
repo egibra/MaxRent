@@ -27,6 +27,7 @@ using MaxRent.API.Services.OrderItemFormattingService;
 using MaxRent.API.Services.AssetAvailabilityService;
 using MaxRent.API.Data.AssetRepository;
 using MaxRent.API.Services.AssetService;
+using MaxRent.API.Services.AssetProfitCalculationService;
 
 namespace MaxRent.API
 {
@@ -60,6 +61,7 @@ namespace MaxRent.API
             services.AddTransient<IOrderFormattingService, OrderFormattingService>();
             services.AddTransient<IOrderItemFormattingService, OrderItemFormattingService>();
             services.AddTransient<IAssetAvailabilityService, AssetAvailabilityService>();
+            services.AddTransient<IAssetProfitCalculationService, AssetProfitCalculationService>();
             services.AddAutoMapper();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(
                 options =>

@@ -15,6 +15,7 @@ namespace MaxRent.API.Data
         public DbSet<Asset> Assets { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<Expense> Expenses { get; set; }
          protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Product>().HasMany(product => product.Photos);
@@ -24,7 +25,10 @@ namespace MaxRent.API.Data
             .HasDefaultValue(OrderStateEnum.Received);
             builder.Entity<Order>().Property(order => order.DateCreated)
             .HasDefaultValue(DateTime.Now);
-            
+            builder.Entity<Expense>().Property(expense => expense.ExpenseType)
+            .HasDefaultValue(ExpenseTypeEnum.Other);
+            builder.Entity<Expense>().Property(expense => expense.DateCreated)
+            .HasDefaultValue(DateTime.Now);
             builder.Entity<OrderItemAsset>()
                 .HasKey(ois => new { ois.AssetId, ois.OrderItemId });
             builder.Entity<OrderItemAsset>()
