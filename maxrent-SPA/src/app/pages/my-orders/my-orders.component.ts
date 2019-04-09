@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OrderForUserView } from 'src/app/_models/order-for-user-view';
+import { OrderForUserView } from 'src/app/_models/order-models/order-for-user-view';
 import { Pagination, PaginatedResult } from 'src/app/_models/pagination';
 import { OrdersService } from 'src/app/_services/orders/orders.service';
 import { ToastrService } from 'ngx-toastr';

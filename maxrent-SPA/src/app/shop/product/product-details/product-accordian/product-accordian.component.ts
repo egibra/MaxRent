@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router} from '@angular/router';
 import { WishlistService } from '../../../../shared/services/wishlist.service';
 import { CartService } from '../../../../shared/services/cart.service';
-import { Product } from 'src/app/_models/product';
+import { Product } from 'src/app/_models/product-models/product';
 import { ProductsService } from 'src/app/_services/products/products.service';
 import { OrdersService } from 'src/app/_services/orders/orders.service';
 import { ToastrService } from 'ngx-toastr';
-import { OrderItemForCreation } from 'src/app/_models/order-item-for-creation';
+import { OrderItemForCreation } from 'src/app/_models/order-models/order-item-for-creation';
 
 @Component({
   selector: 'app-product-accordian',

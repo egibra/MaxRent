@@ -3,12 +3,12 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CartService } from '../../../shared/services/cart.service';
 import { Observable, of } from 'rxjs';
 import { ProductsService } from 'src/app/_services/products/products.service';
-import { OrderItemForApi } from 'src/app/_models/order-item-for-api';
+import { OrderItemForApi } from 'src/app/_models/order-models/order-item-for-api';
 import { User } from 'src/app/_models/user';
 import { OrdersService } from 'src/app/_services/orders/orders.service';
 import { Router } from '@angular/router';
-import { OrderItemForCreation } from 'src/app/_models/order-item-for-creation';
-import { OrderForCreation } from 'src/app/_models/order-for-creation';
+import { OrderItemForCreation } from 'src/app/_models/order-models/order-item-for-creation';
+import { OrderForCreation } from 'src/app/_models/order-models/order-for-creation';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({

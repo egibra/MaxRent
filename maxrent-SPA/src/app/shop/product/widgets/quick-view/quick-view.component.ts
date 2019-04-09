@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CartService } from '../../../../shared/services/cart.service';
-import { Product } from 'src/app/_models/product';
+import { Product } from 'src/app/_models/product-models/product';
 import { ProductsService } from 'src/app/_services/products/products.service';
 declare var $: any;
 

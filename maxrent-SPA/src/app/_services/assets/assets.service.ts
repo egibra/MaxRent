@@ -3,10 +3,10 @@ import { environment } from 'src/environments/environment';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { PaginatedResult } from 'src/app/_models/pagination';
 import { Observable } from 'rxjs';
-import { AssetForAdminListView } from 'src/app/_models/asset-for-admin-list-view';
+import { AssetForAdminListView } from 'src/app/_models/asset-models/asset-for-admin-list-view';
 import { map } from 'rxjs/operators';
-import { AssetForDetailView } from 'src/app/_models/asset-for-detail-view';
-import { AssetOrderForDetailView } from 'src/app/_models/asset-order-for-detail-view';
+import { AssetForDetailView } from 'src/app/_models/asset-models/asset-for-detail-view';
+import { AssetOrderForDetailView } from 'src/app/_models/asset-models/asset-order-for-detail-view';
 
 @Injectable({
   providedIn: 'root'

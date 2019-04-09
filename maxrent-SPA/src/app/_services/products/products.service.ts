@@ -3,7 +3,7 @@ import { environment } from 'src/environments/environment';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { PaginatedResult } from 'src/app/_models/pagination';
-import { Product } from 'src/app/_models/product';
+import { Product } from 'src/app/_models/product-models/product';
 import { map } from 'rxjs/operators';
 
 @Injectable({

@@ -14,5 +14,6 @@ namespace MaxRent.API.Services.AssetService
      Task<AssetForDetailDto> GetAssetForDetail(int id);
      Task DeleteAsset(int id);
      Task<Asset> GetAssetById(int id);
+     Task<List<AssetForAdminListViewDto>> GetAllProductAssets(int productId);
     }
 }

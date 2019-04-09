@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Product } from 'src/app/_models/product';
+import { Product } from 'src/app/_models/product-models/product';
 
 @Component({
   selector: 'app-product-slider',

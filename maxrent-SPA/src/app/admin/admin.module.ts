@@ -12,6 +12,9 @@ import { PaginationModule } from 'ngx-bootstrap';
 import { AssetListComponent } from './product-assets/asset-list/asset-list.component';
 import { AssetDetailComponent } from './product-assets/asset-detail/asset-detail.component';
 import { RouterModule } from '@angular/router';
+import {MatDialogModule} from '@angular/material/dialog';
+import { AddExpenseComponent } from './expenses/add-expense/add-expense.component';
+import * as Material from '@angular/material';
 
 @NgModule({
   imports: [
@@ -21,6 +24,23 @@ import { RouterModule } from '@angular/router';
     BrowserModule,
     HttpClientModule,
     RouterModule,
+    MatDialogModule,
+    Material.MatToolbarModule,
+    Material.MatGridListModule,
+    Material.MatFormFieldModule,
+    Material.MatInputModule,
+    Material.MatRadioModule,
+    Material.MatSelectModule,
+    Material.MatCheckboxModule,
+    Material.MatDatepickerModule,
+    Material.MatNativeDateModule,
+    Material.MatButtonModule,
+    Material.MatSnackBarModule,
+    Material.MatTableModule,
+    Material.MatIconModule,
+    Material.MatPaginatorModule,
+    Material.MatSortModule,
+    Material.MatDialogModule,
     PaginationModule.forRoot()
 
   ],
@@ -31,7 +51,9 @@ import { RouterModule } from '@angular/router';
     ExpensesListComponent,
     AssetListComponent,
     AssetDetailComponent,
+    AddExpenseComponent,
     TimeAgoPipe
-  ]
+  ],
+  entryComponents: [ AddExpenseComponent ]
 })
 export class AdminModule { }

@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
-import { Expense } from 'src/app/_models/expense';
+import { Expense } from 'src/app/_models/expense-models/expense';
 import { ToastrService } from 'ngx-toastr';
 import { ExpensesService } from 'src/app/_services/expenses/expenses.service';
 

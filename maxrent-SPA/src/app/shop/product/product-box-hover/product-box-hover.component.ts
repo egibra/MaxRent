@@ -5,7 +5,7 @@ import { ProductsService } from '../../../shared/services/products.service';
 import { WishlistService } from '../../../shared/services/wishlist.service';
 import { CartService } from '../../../shared/services/cart.service';
 import { Observable, of } from 'rxjs';
-import { Product } from 'src/app/_models/product';
+import { Product } from 'src/app/_models/product-models/product';
 
 @Component({
   selector: 'app-product-box-hover',

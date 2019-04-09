@@ -1,5 +1,5 @@
 import { ProductPhoto } from './product-photo';
-import { Asset } from './asset';
+import { Asset } from '../asset-models/asset';
 
 export class Product {
      id: number;

@@ -49,8 +49,8 @@ namespace MaxRent.API.Helpers
             AssetForAdminListViewDto dto = new AssetForAdminListViewDto();
             dto.AssetId= asset.Id;
             dto.AssetCode = asset.AssetCode;
-            dto.ProductName = asset.AssignedProduct.Name;
-            dto.PhotoUrl = asset.AssignedProduct.Photos[0].Url;
+            dto.ProductName = asset.AssignedProduct?.Name;
+            dto.PhotoUrl = asset.AssignedProduct.Photos[0]?.Url;
 
             return dto;
         }

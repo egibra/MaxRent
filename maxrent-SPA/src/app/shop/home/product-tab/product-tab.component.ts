@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Product } from '../../../_models/product';
+import { Product } from '../../../_models/product-models/product';
 declare var $: any;
 
 

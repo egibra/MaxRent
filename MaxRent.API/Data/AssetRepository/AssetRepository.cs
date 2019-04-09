@@ -28,6 +28,15 @@ namespace MaxRent.API.Data.AssetRepository
 
             return assets;
         }
+
+        public async Task<List<Asset>> GetAllProductAssets(int productId)
+        {
+            var assets = await _dataContext.Assets
+            .Where(asset => asset.ProductId == productId).ToListAsync();
+
+            return assets;
+        }
+
         public async Task<Asset> GetAsset(int id)
         {
             var asset = await _dataContext.Assets

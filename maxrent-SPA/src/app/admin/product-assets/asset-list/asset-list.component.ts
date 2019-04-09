@@ -4,7 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute } from '@angular/router';
 import { AssetsService } from 'src/app/_services/assets/assets.service';
-import { AssetForAdminListView } from 'src/app/_models/asset-for-admin-list-view';
+import { AssetForAdminListView } from 'src/app/_models/asset-models/asset-for-admin-list-view';
 
 @Component({
   selector: 'app-asset-list',

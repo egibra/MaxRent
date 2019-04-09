@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Expense } from '../../../_models/expense';
+import { Expense } from '../../../_models/expense-models/expense';
 import { Pagination, PaginatedResult } from '../../../_models/pagination';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';

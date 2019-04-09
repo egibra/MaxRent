@@ -3,7 +3,7 @@ import { CartItem } from '../../../shared/classes/cart-item';
 import { CartService } from '../../../shared/services/cart.service';
 import { Observable, of } from 'rxjs';
 import { ProductsService } from 'src/app/_services/products/products.service';
-import { OrderItemForCreation } from 'src/app/_models/order-item-for-creation';
+import { OrderItemForCreation } from 'src/app/_models/order-models/order-item-for-creation';
 
 @Component({
   selector: 'app-cart',

@@ -97,5 +97,23 @@ namespace MaxRent.API.Services.AssetService
 
             return assetForDetail;       
         }
+
+        public async Task<List<AssetForAdminListViewDto>> GetAllProductAssets(int assetId)
+        {
+            var asset = await _assetRepository.GetAsset(assetId);
+
+            if (asset == null)
+                return null;
+
+            var assetsByProductId = await _assetRepository.GetAllProductAssets(asset.ProductId);
+            List<AssetForAdminListViewDto> assetsDtoList = new List<AssetForAdminListViewDto>();
+
+            foreach (var assetFromProduct in assetsByProductId)
+            {
+               assetsDtoList.Add(MapperHelper.GetAssetForAdminListViewDtoFromAsset(assetFromProduct));
+            }
+
+            return assetsDtoList;
+        }
     }
 }

@@ -3,9 +3,9 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { RequestOptions } from '@angular/http';
-import { OrderForCreation } from 'src/app/_models/order-for-creation';
+import { OrderForCreation } from 'src/app/_models/order-models/order-for-creation';
 import { PaginatedResult } from 'src/app/_models/pagination';
-import { OrderForUserView } from 'src/app/_models/order-for-user-view';
+import { OrderForUserView } from 'src/app/_models/order-models/order-for-user-view';
 import { map } from 'rxjs/operators';
 
 @Injectable({

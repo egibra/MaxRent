@@ -4,7 +4,7 @@ import { CartItem } from '../../../../shared/classes/cart-item';
 import { CartService } from '../../../../shared/services/cart.service';
 import { ProductsService } from '../../../../shared/services/products.service';
 import { Observable, of } from 'rxjs';
-import { OrderItemForCreation } from 'src/app/_models/order-item-for-creation';
+import { OrderItemForCreation } from 'src/app/_models/order-models/order-item-for-creation';
 declare var $: any;
 
 @Component({

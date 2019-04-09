@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { PaginatedResult } from 'src/app/_models/pagination';
-import { Expense } from 'src/app/_models/expense';
+import { Expense } from 'src/app/_models/expense-models/expense';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class ExpensesService {
   baseUrl = environment.apiUrl;
 constructor(private http: HttpClient) { }
   getExpenses(page?, itemsPerPage?): Observable<PaginatedResult<Expense[]>> {
-    let paginatedResult: PaginatedResult<Expense[]> = new PaginatedResult<Expense[]>();
+    const paginatedResult: PaginatedResult<Expense[]> = new PaginatedResult<Expense[]>();
     let params = new HttpParams();
     if (page != null && itemsPerPage != null) {
       params = params.append('pageNumber', page);

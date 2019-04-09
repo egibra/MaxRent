@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ProductsService } from 'src/app/_services/products/products.service';
-import { Product } from '../../_models/product';
+import { Product } from '../../_models/product-models/product';
 declare var $: any;
 
 @Component({

@@ -1,4 +1,4 @@
-import { Product } from '../_models/product';
+import { Product } from '../_models/product-models/product';
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 import { ProductsService } from '../_services/products/products.service';

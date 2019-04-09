@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject, Observable, Subscriber } from 'rxjs';
 import { map, filter } from 'rxjs/operators';
-import { OrderItemForCreation } from 'src/app/_models/order-item-for-creation';
+import { OrderItemForCreation } from 'src/app/_models/order-models/order-item-for-creation';
 
 // Get product from Localstorage
 let orderItems: OrderItemForCreation [] = JSON.parse(localStorage.getItem('cartItem')) || [];
