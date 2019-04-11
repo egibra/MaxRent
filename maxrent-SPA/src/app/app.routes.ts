@@ -25,11 +25,11 @@ import { TypographyComponent } from './pages/typography/typography.component';
 import { FaqComponent } from './pages/faq/faq.component';
 import { ProfitChartComponent } from './admin/profit-chart/profit-chart.component';
 import { ExpensesChartComponent } from './admin/expenses/expenses-chart/expenses-chart.component';
-import { ExpensesListComponent } from './admin/expenses/expenses-list/expenses-list.component';
 import { MyOrdersComponent } from './pages/my-orders/my-orders.component';
 import { AssetListComponent } from './admin/product-assets/asset-list/asset-list.component';
 import { ProductViewResolver } from './_resolvers/product-view.resolver';
 import { AssetDetailComponent } from './admin/product-assets/asset-detail/asset-detail.component';
+import { AllOrdersViewComponent } from './admin/orders/all-orders-view/all-orders-view.component';
 
 export const rootRouterConfig: Routes = [
   {
@@ -58,8 +58,8 @@ export const rootRouterConfig: Routes = [
     component: ExpensesChartComponent
   },
   {
-    path: 'expenses-list',
-    component: ExpensesListComponent
+    path: 'all-orders-view',
+    component: AllOrdersViewComponent
   },
   {
     path: 'left-sidebar/collection/:category',

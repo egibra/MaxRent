@@ -19,11 +19,13 @@ namespace MaxRent.API.Data.AssetRepository
             var asset = await _dataContext.Assets.FirstOrDefaultAsync(p => p.Id == id);
             _dataContext.Assets.Remove(asset);
         }
-        public async Task<List<Asset>> GetAllAssets(UserParams userParams)
+        public async Task<List<Asset>> GetAllAssets()
         {
             var assets =await _dataContext.Assets
             .Include(p => p.AssignedProduct)
-            .ThenInclude(p => p.Photos).OrderByDescending(a => a.AssignedProduct.Name)
+            .ThenInclude(p => p.Photos)
+            .Include(a => a.Expenses)
+            .OrderByDescending(a => a.AssignedProduct.Name)
             .ThenBy(a => a.AssetCode).ToListAsync();
 
             return assets;

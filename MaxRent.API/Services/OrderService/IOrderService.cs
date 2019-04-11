@@ -11,6 +11,7 @@ namespace MaxRent.API.Services.OrderService
          Task<Order> AddOrder(OrderForCreationDto orderForCreationDto);
          Task<bool> SaveAll();
          Task<PagedList<OrderForUserViewDto>> GetUserOrders(UserParams userParams);
-
+         Task<PagedList<OrderForUserViewDto>> GetOrdersForAdmin(UserParams userParams);
+         Task<Order> GetOrderById(int id);
     }
 }

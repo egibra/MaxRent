@@ -10,6 +10,7 @@ namespace MaxRent.API.Helpers
         public static OrderForUserViewDto GetOrderForUserViewFromOrder(Order order) 
         {
             OrderForUserViewDto orderForUser = new OrderForUserViewDto();
+            orderForUser.Id = order.Id;
             orderForUser.CustomerAddress = order.CustomerAddress;
             orderForUser.CustomerName = order.CustomerName;
             orderForUser.CustomerNumber = order.CustomerNumber;

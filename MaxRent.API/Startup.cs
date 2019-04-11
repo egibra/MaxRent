@@ -28,6 +28,8 @@ using MaxRent.API.Services.AssetAvailabilityService;
 using MaxRent.API.Data.AssetRepository;
 using MaxRent.API.Services.AssetService;
 using MaxRent.API.Services.AssetProfitCalculationService;
+using MaxRent.API.Data.ExpenseRepository;
+using MaxRent.API.Services.ExpenseService;
 
 namespace MaxRent.API
 {
@@ -54,7 +56,9 @@ namespace MaxRent.API
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IAssetRepository, AssetRepository>();
+            services.AddScoped<IExpenseRepository, ExpenseRepository>();
             services.AddTransient<IUserService, UserService>(); 
+            services.AddTransient<IExpenseService, ExpenseService>(); 
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<IAssetService, AssetService>();
             services.AddTransient<IOrderService, OrderService>();

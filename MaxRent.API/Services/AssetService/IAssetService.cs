@@ -12,6 +12,7 @@ namespace MaxRent.API.Services.AssetService
      Task<PagedList<AssetForAdminListViewDto>> GetAllAssetsWithPagination(UserParams userParams);
      Task<PagedList<OrderForAssetDetailDto>> GetAssetOrders(int assetId, UserParams userParams);
      Task<AssetForDetailDto> GetAssetForDetail(int id);
+     Task<List<Expense>> GetAssetExpenses(int id);
      Task DeleteAsset(int id);
      Task<Asset> GetAssetById(int id);
      Task<List<AssetForAdminListViewDto>> GetAllProductAssets(int productId);

@@ -7,6 +7,7 @@ import { OrderForCreation } from 'src/app/_models/order-models/order-for-creatio
 import { PaginatedResult } from 'src/app/_models/pagination';
 import { OrderForUserView } from 'src/app/_models/order-models/order-for-user-view';
 import { map } from 'rxjs/operators';
+import { httpFactory } from '@angular/http/src/http_module';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +29,27 @@ export class OrdersService {
     return this.http.post(this.baseUrl + 'order/AddOrder', order, { observe: 'response'
     });
   }
+  getPaginatedOrdersForAdmin(page?, itemsPerPage?): Observable<PaginatedResult<OrderForUserView[]>> {
+    const paginatedResult: PaginatedResult<OrderForUserView[]> = new PaginatedResult<OrderForUserView[]>();
+    let params = new HttpParams();
+
+    if (page != null && itemsPerPage != null) {
+      params = params.append('pageNumber', page);
+      params = params.append('pageSize', itemsPerPage);
+      params = params.append('pageSize', itemsPerPage);
+    }
+
+    return this.http.get<OrderForUserView[]>(this.baseUrl + 'order/GetOrdersForAdmin', { observe: 'response', params}).pipe(
+      map(response => {
+        paginatedResult.result = response.body;
+        if (response.headers.get('Pagination') != null) {
+          paginatedResult.pagination = JSON.parse(response.headers.get('Pagination'));
+        }
+        return paginatedResult;
+      })
+    );
+  }
+
   getPaginatedOrdersForUser(page?, itemsPerPage?, userId?): Observable<PaginatedResult<OrderForUserView[]>> {
     const paginatedResult: PaginatedResult<OrderForUserView[]> = new PaginatedResult<OrderForUserView[]>();
     let params = new HttpParams();
@@ -48,5 +70,13 @@ export class OrdersService {
         return paginatedResult;
       })
     );
+  }
+
+  changeOrderState(id, state) {
+    let params = new HttpParams();
+    params = params.append('id', id);
+    params = params.append('state', state);
+    console.log(params);
+    return this.http.put<any>(this.baseUrl + 'order/UpdateOrderState', {}, {observe: 'response', params});
   }
 }

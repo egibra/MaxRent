@@ -26,7 +26,7 @@ namespace MaxRent.API.Services.AssetService
         }
         public async Task<PagedList<AssetForAdminListViewDto>> GetAllAssetsWithPagination(UserParams userParams)
         {
-           var assetsFromRepo =  await _assetRepository.GetAllAssets(userParams);
+           var assetsFromRepo =  await _assetRepository.GetAllAssets();
 
            var assetsForAdminView = new List<AssetForAdminListViewDto>();
             foreach (var asset in assetsFromRepo)
@@ -114,6 +114,12 @@ namespace MaxRent.API.Services.AssetService
             }
 
             return assetsDtoList;
+        }
+
+        public async Task<List<Expense>> GetAssetExpenses(int id)
+        {
+            var asset = await _assetRepository.GetAsset(id);
+            return asset.Expenses.OrderByDescending(expense => expense.DateCreated).ToList();
         }
     }
 }

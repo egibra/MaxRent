@@ -62,10 +62,19 @@ export class AssetsService {
   getAssetById(id): Observable<AssetForAdminListView> {
     return this.http.get<AssetForAdminListView>(this.baseUrl + 'asset/' + id);
   }
+
   getAssetForDetailViewById(id): Observable<AssetForDetailView> {
     return this.http.get<AssetForDetailView>(this.baseUrl + 'asset/' + id + '/GetAssetForDetailView');
   }
+
   deleteAsset(id: string) {
     return this.http.delete(this.baseUrl + 'asset/' + id);
+  }
+
+  getAllProductAssets(id: string) {
+    return this.http.get<AssetForAdminListView[]>(this.baseUrl + 'asset/' + id + '/GetAllProductAssets');
+  }
+  getAssetExpenses(id: string) {
+    return this.http.get<any[]>(this.baseUrl + 'asset/' + id + '/GetAssetExpenses');
   }
 }

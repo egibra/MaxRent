@@ -59,5 +59,28 @@ namespace MaxRent.API.Controllers
 
             return Ok(ordersForUser);
         }
+
+         [HttpGet("GetOrdersForAdmin")]
+        public async Task<IActionResult> GetOrdersForAdmin([FromQuery]UserParams userParams)
+        {
+            var ordersForAdmin = await _orderService.GetOrdersForAdmin(userParams);
+            Response.AddPagination(ordersForAdmin.CurrentPage, ordersForAdmin.PageSize, 
+            ordersForAdmin.TotalCount, ordersForAdmin.TotalPages);
+
+            return Ok(ordersForAdmin);
+        }
+
+        [HttpPut("UpdateOrderState")]
+        public async Task<IActionResult> UpdateOrderState([FromQuery]int id, [FromQuery]int state)
+        {
+            var order = await _orderService.GetOrderById(id);
+            if (order == null)
+                return NotFound();
+
+            order.OrderState = (OrderStateEnum)state;
+            await _orderService.SaveAll();
+
+            return Ok(order);
+        }
     }
 }

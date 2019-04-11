@@ -1,31 +1,28 @@
-<form>
-      <div class="controles-container">
-        <div class="add-bottom-padding">
-          <mat-form-field>
-              <input formControlName="mobile" matInput placeholder="Suma">
-          </mat-form-field> <br/>
-          <mat-radio-group formControlName="gender">
-            <mat-radio-button value="1">Facebook</mat-radio-button>
-            <mat-radio-button value="2">Instagram</mat-radio-button>
+ <div class="controles-container">
+        <div class="autocomplete">
+          <ng-multiselect-dropdown
+            [placeholder]="'Pasirinkite įrangą'"
+            [data]="myOptions"
+            [(ngModel)]="selectedItems"
+            [settings]="dropdownSettings">
+        </ng-multiselect-dropdown>
+      </div>
+      <mat-form-field>
+        <input [(ngModel)]='expenseDate' matInput [matDatepicker]="picker" placeholder="Išlaidos data">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <div class="type">
+          <mat-radio-group [(ngModel)]="type">
+            <mat-radio-button value="1">Facebook</mat-radio-button> &nbsp;  &nbsp; 
+            <mat-radio-button value="2">Instagram</mat-radio-button> &nbsp;  &nbsp; 
             <mat-radio-button value="3">Kita</mat-radio-button>
           </mat-radio-group>
-        </div>
-        <mat-form-field>
-          <input formControlName="hireDate" matInput [matDatepicker]="picker" placeholder="Išlaidos data">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-        <div class="add-bottom-padding">
-          <mat-checkbox formControlName="isPermanent">Dalinti</mat-checkbox>
-        </div>
-        <mat-form-field>
-          <mat-select formControlName="department" placeholder="Department">
-            <mat-option>None</mat-option>
-          </mat-select>
-        </mat-form-field>
+      </div>
+      <mat-form-field>
+        <input [(ngModel)]="amount"  matInput placeholder="Suma"> €
+    </mat-form-field>
         <div class="button-row">
-          <button mat-raised-button color="primary" type="submit">Submit</button>
-          <button mat-raised-button color="warn">Clear</button>
+          <button mat-raised-button color="primary" (click)="addExpense()">Pridėti</button>
         </div>
       </div>
-</form>

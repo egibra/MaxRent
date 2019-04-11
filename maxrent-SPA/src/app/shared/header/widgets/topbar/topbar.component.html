@@ -2,8 +2,8 @@
     <div class="col-lg-6">
       <div class="header-contact">
         <ul>
-          <li>{{ 'topbar-title' | translate }}</li>
-          <li><i class="fa fa-phone" aria-hidden="true"></i>{{ 'call-us' | translate }}: +370 63827377</li>
+          <li>Sveiki!</li>
+          <li><i class="fa fa-phone" aria-hidden="true"></i>Susisiekite: +370 63977377</li>
         </ul>
       </div>
     </div>
@@ -15,12 +15,12 @@
           <ul class="onhover-show-div">
             <li>
               <a [routerLink]="'/myorders'" data-lng="en">
-                  {{ 'my-orders' | translate }}
+                  Mano užsakymai
               </a>
             </li>
             <li>
               <a (click)="logout()" data-lng="es">
-                  {{ 'logout' | translate }}
+                  Atsijungti
               </a>
             </li>
           </ul>
@@ -32,16 +32,16 @@
             <ul class="header-dropdown">
               <li class="onhover-dropdown mobile-account">
                 
-                <i class="fa fa-user" aria-hidden="true"></i> {{ 'my-account' | translate }}
+                <i class="fa fa-user" aria-hidden="true"></i> Mano paskyra
                 <ul class="onhover-show-div">
                   <li>
                     <a [routerLink]="'/login'" data-lng="en">
-                        {{ 'login' | translate }}
+                      Prisijungti
                     </a>
                   </li>
                   <li>
                     <a (click)="logout()" data-lng="es">
-                        {{ 'logout' | translate }}
+                        Atsijungti
                     </a>
                   </li>
                 </ul>

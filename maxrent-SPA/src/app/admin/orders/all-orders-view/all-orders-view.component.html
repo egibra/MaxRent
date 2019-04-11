@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="tbl-header">
+  <table cellpadding="0" cellspacing="0">
+      <thead>
+        <tr>
+          <th>Užsakymo data</th>
+          <th>Užsakymo kodas</th>
+          <th>Būsena</th>
+          <th>Suma</th>
+          <th>Produktai</th>
+          <th>Keisti būseną</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <div class="tbl-content">
+    <table cellpadding="0" cellspacing="0">
+      <tbody>
+          <tr *ngFor="let order of orders" class="tr-border-bottom">
+            <td>{{ order.dateCreated | date }}</td>
+            <td>{{ order.orderCode }}            
+            </td>
+            <td class="bold-column">{{ order.orderState }}</td>
+            <td>{{ order.totalOrderSum | number : '1.2-2' }} €</td>
+            <td> 
+              <table>
+                <tr *ngFor="let orderItem of order.orderItems">
+                  <td>
+                      {{ orderItem.productName }}( {{ orderItem.dateFrom | date}} - {{ orderItem.dateTo | date }})
+                  </td>
+                </tr>
+              </table> 
+            </td>
+            <td>
+              <button (click)="changeState(order.id, 0)"><i class="fa fa-ban"></i></button> &nbsp;
+              <button (click)="changeState(order.id, 2)"><i class="fa fa-thumbs-o-up"></i></button> &nbsp;
+              <button (click)="changeState(order.id, 3)"><i class="fa fa-check-square-o"></i></button> &nbsp;
+            </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="d-flex justify-content-center mb-2">
+<pagination [boundaryLinks]="true" 
+[totalItems]= "pagination.totalItems"
+[(ngModel)]="pagination.currentPage"
+[itemsPerPage]="pagination.itemsPerPage"
+(pageChanged)="pageChanged($event)"
+previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+</pagination>
+</div>

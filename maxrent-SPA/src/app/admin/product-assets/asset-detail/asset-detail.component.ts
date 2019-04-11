@@ -8,6 +8,7 @@ import { AssetOrderForDetailView } from 'src/app/_models/asset-models/asset-orde
 import { ToastrService } from 'ngx-toastr';
 import { AddExpenseComponent } from '../../expenses/add-expense/add-expense.component';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { IMultiSelectOption } from 'angular-2-dropdown-multiselect';
 
 @Component({
   selector: 'app-asset-detail',
@@ -19,6 +20,7 @@ export class AssetDetailComponent implements OnInit {
   assetInfo: AssetForDetailView;
   assetOrders: AssetOrderForDetailView[];
   pagination: Pagination;
+  assetExpenses: Observable<any[]>;
   constructor(private assetService: AssetsService, private route: ActivatedRoute,
     private toastrService: ToastrService, private dialog: MatDialog) { }
 
@@ -29,6 +31,8 @@ export class AssetDetailComponent implements OnInit {
       },
         error => console.log(error)
     );
+
+    this.assetExpenses = this.assetService.getAssetExpenses(this.route.snapshot.paramMap.get('id'));
 
     this.pagination = new Pagination();
     this.pagination.currentPage = 1;
@@ -53,11 +57,18 @@ export class AssetDetailComponent implements OnInit {
 
   onCreateExpense() {
     console.log('clickedd');
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = false;
-    dialogConfig.autoFocus = true;
-    dialogConfig.width = '30%';
-    this.dialog.open(AddExpenseComponent, dialogConfig);
+    this.assetService.getAllProductAssets(this.route.snapshot.paramMap.get('id')).subscribe( assets => {
+      const myOptions: IMultiSelectOption[] = [];
+      assets.forEach(param => {
+          myOptions.push({id: param.assetId, name: param.assetCode});
+        });
+        const dialogConfig = new MatDialogConfig();
+        dialogConfig.disableClose = false;
+        dialogConfig.autoFocus = true;
+        dialogConfig.width = '30%';
+        dialogConfig.data = myOptions;
+        this.dialog.open(AddExpenseComponent, dialogConfig);
+    });
   }
 
 }

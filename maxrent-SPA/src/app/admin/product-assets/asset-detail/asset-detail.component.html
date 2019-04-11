@@ -125,25 +125,9 @@
                                 <div class="table-responsive">
                                     <table class="table-top-countries">
                                         <tbody>
-                                            <tr>
-                                                <td>Facebook</td>
-                                                <td class="text-right">€ 25.55</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Instagram</td>
-                                                <td class="text-right">€ 26.66</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Kita</td>
-                                                <td class="text-right">€ 15.55</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Kita</td>
-                                                <td class="text-right">€ 12.55</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Facebook</td>
-                                                <td class="text-right">€ 99.95</td>
+                                            <tr *ngFor="let expense of assetExpenses | async">
+                                                <td>{{ expense.type }}</td>
+                                                <td class="text-right">€ {{ expense.sum | number: '1.2-2'}}</td>
                                             </tr>
                                         </tbody>
                                     </table>

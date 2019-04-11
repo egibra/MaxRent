@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ExpensesService } from '../../../_services/expenses/expenses.service';
 import * as am4core from '@amcharts/amcharts4/core';
 import * as am4charts from '@amcharts/amcharts4/charts';
 
@@ -9,105 +10,10 @@ import * as am4charts from '@amcharts/amcharts4/charts';
 })
 export class ExpensesChartComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _expensesService: ExpensesService) { }
+  data: any;
 
   ngOnInit() {
-    const data = [{
-      'country': 'GoPro Hero5 (G5-1)',
-      'units': 500,
-      'pie': [{
-        'value': 250,
-        'title': 'Cat #1'
-      }, {
-        'value': 150,
-        'title': 'Cat #2'
-      }, {
-        'value': 100,
-        'title': 'Cat #3'
-      }]
-    },
-    {
-      'country': 'GoPro Hero5 (G5-2)',
-      'units': 500,
-      'pie': [{
-        'value': 100,
-        'title': 'Cat #1'
-      }, {
-        'value': 300,
-        'title': 'Cat #2'
-      }, {
-        'value': 100,
-        'title': 'Cat #3'
-      }]
-    },
-    {
-      'country': 'GoPro Hero5 (G5-3)',
-      'units': 500,
-      'pie': [{
-        'value': 250,
-        'title': 'Cat #1'
-      }, {
-        'value': 150,
-        'title': 'Cat #2'
-      }, {
-        'value': 100,
-        'title': 'Cat #3'
-      }]
-    },
-    {
-      'country': 'GoPro Hero5 (G5-4)',
-      'units': 500,
-      'pie': [{
-        'value': 250,
-        'title': 'Cat #1'
-      }, {
-        'value': 150,
-        'title': 'Cat #2'
-      }, {
-        'value': 100,
-        'title': 'Cat #3'
-      }]
-    },
-    {
-      'country': 'GoPro Hero5 (G5-5)',
-      'units': 500,
-      'pie': [{
-        'value': 250,
-        'title': 'Cat #1'
-      }, {
-        'value': 150,
-        'title': 'Cat #2'
-      }, {
-        'value': 100,
-        'title': 'Cat #3'
-      }]
-    }, {
-      'country': 'Czech Republic',
-      'units': 300,
-      'pie': [{
-        'value': 80,
-        'title': 'Cat #1'
-      }, {
-        'value': 130,
-        'title': 'Cat #2'
-      }, {
-        'value': 90,
-        'title': 'Cat #3'
-      }]
-    }, {
-      'country': 'Ireland',
-      'units': 200,
-      'pie': [{
-        'value': 75,
-        'title': 'Cat #1'
-      }, {
-        'value': 55,
-        'title': 'Cat #2'
-      }, {
-        'value': 70,
-        'title': 'Cat #3'
-      }]
-    }];
 
 
     // Create chart instance
@@ -115,29 +21,30 @@ export class ExpensesChartComponent implements OnInit {
     chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
 
     // Add data
-    chart.data = data;
-
+    this._expensesService.getExpensesForChart().subscribe((response: any) => {
+      chart.data = response;
+   });
     // Create axes
     const categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
-    categoryAxis.dataFields.category = 'country';
+    categoryAxis.dataFields.category = 'name';
     categoryAxis.renderer.grid.template.disabled = true;
 
     const valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-    valueAxis.title.text = 'Units sold (M)';
+    valueAxis.title.text = 'Išleista, €';
     valueAxis.min = 0;
     valueAxis.renderer.baseGrid.disabled = true;
     valueAxis.renderer.grid.template.strokeOpacity = 0.07;
 
     // Create series
     const series = chart.series.push(new am4charts.ColumnSeries());
-    series.dataFields.valueY = 'units';
-    series.dataFields.categoryX = 'country';
+    series.dataFields.valueY = 'totalSum';
+    series.dataFields.categoryX = 'name';
     series.tooltip.pointerOrientation = 'vertical';
 
 
     const columnTemplate = series.columns.template;
     // add tooltip on column, not template, so that slices could also have tooltip
-    columnTemplate.column.tooltipText = 'Series: {name}\nCategory: {categoryX}\nValue: {valueY}';
+    columnTemplate.column.tooltipText = 'Įranga: {name}\n Iš viso išleista: {valueY} €';
     columnTemplate.column.tooltipY = 0;
     columnTemplate.column.cornerRadiusTopLeft = 20;
     columnTemplate.column.cornerRadiusTopRight = 20;

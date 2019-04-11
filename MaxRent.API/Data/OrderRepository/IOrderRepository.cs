@@ -12,6 +12,8 @@ namespace MaxRent.API.Data.OrderRepository
         Task<PagedList<Order>> GetAllOrdersWithPagination(UserParams userParams, bool forUser);
         Task<PagedList<Order>> GetOrdersForProduct(int productId, UserParams userParams);
         Task<List<Order>> GetOrdersForUser(UserParams userParams);
+        Task<List<Order>> GetOrdersForAdmin(UserParams userParams);
+        Task<Order> GetOrderById(int id);
         Task<Order> GetOrder(int id);
         Task DeleteOrder(int id);
         Task<bool> SaveAll();

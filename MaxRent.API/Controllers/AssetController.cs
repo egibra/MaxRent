@@ -1,7 +1,9 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using MaxRent.API.Dtos;
+using MaxRent.API.Dtos.ExpenseDtos;
 using MaxRent.API.Helpers;
 using MaxRent.API.Models;
 using MaxRent.API.Services.AssetService;
@@ -56,6 +58,34 @@ namespace MaxRent.API.Controllers
             paginatedAssetOrders.TotalCount, paginatedAssetOrders.TotalPages);
 
             return Ok(paginatedAssetOrders);
+        }
+        [HttpGet("{id}/GetAssetExpenses")]
+        public async Task<IActionResult> GetAssetExpenses(int id)
+        {
+            var expenses  = await _assetService.GetAssetExpenses(id);
+            
+            if (expenses == null)
+                return BadRequest();
+            
+            var map = new List<ExpenseListItemDto>();
+            foreach (var expense in expenses) {
+                ExpenseListItemDto dto = new ExpenseListItemDto();
+                dto.Sum = expense.Sum;
+                switch (expense.ExpenseType)
+                 {
+                     case(ExpenseTypeEnum.Facebook):
+                         dto.Type="Facebook";
+                         break;
+                     case(ExpenseTypeEnum.Instagram):
+                        dto.Type="Instagram";
+                        break;
+                     default: 
+                         dto.Type="Kita";
+                         break;
+                 }
+                 map.Add(dto);
+            }
+            return Ok(map);
         }
 
         [HttpGet("{id}/GetAllProductAssets")]

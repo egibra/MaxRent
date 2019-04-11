@@ -6,6 +6,7 @@ namespace MaxRent.API.Models
     {
         public int Id { get; set; }
         public double Sum { get; set; }
+        public string Description { get; set; }
         public ExpenseTypeEnum ExpenseType { get; set; }
         public DateTime DateCreated { get; set; }
         public int AssetId { get; set; }

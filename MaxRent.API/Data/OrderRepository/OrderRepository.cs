@@ -57,7 +57,8 @@ namespace MaxRent.API.Data.OrderRepository
             .Where(order => order.OrderItems
             .FirstOrDefault(o => o.OrderItemAssets.
             FirstOrDefault(asset => asset.Asset.ProductId == productId) != null) != null)
-            .Include(order => order.OrderItems);
+            .Include(order => order.OrderItems)
+            .OrderByDescending(order => order.DateCreated);
 
             return await PagedList<Order>.CreateAsync(ordersForProduct, userParams.PageNumber, userParams.PageSize);
         }
@@ -68,7 +69,19 @@ namespace MaxRent.API.Data.OrderRepository
             .Where(order => order.UserId == userParams.UserId).Include(order => order.OrderItems)
             .ThenInclude(orderItem => orderItem.OrderItemAssets)
             .ThenInclude(orderItemAsset => orderItemAsset.Asset)
-            .ThenInclude(asset => asset.AssignedProduct).ToListAsync();
+            .ThenInclude(asset => asset.AssignedProduct)
+            .OrderByDescending(order => order.DateCreated).ToListAsync();
+
+            return ordersForUser;
+        }
+        public async Task<List<Order>> GetOrdersForAdmin(UserParams userParams)
+        {
+            var ordersForUser = await  _dataContext.Orders
+            .Include(order => order.OrderItems)
+            .ThenInclude(orderItem => orderItem.OrderItemAssets)
+            .ThenInclude(orderItemAsset => orderItemAsset.Asset)
+            .ThenInclude(asset => asset.AssignedProduct)
+            .OrderByDescending(order => order.DateCreated).ToListAsync();
 
             return ordersForUser;
         }
@@ -76,6 +89,17 @@ namespace MaxRent.API.Data.OrderRepository
         public async Task<bool> SaveAll()
         {
             return await _dataContext.SaveChangesAsync() > 0;
+        }
+
+        public async Task<Order> GetOrderById(int id)
+        {
+            var orderToReturn = await  _dataContext.Orders
+            .Where(order => order.Id == id).Include(order => order.OrderItems)
+            .ThenInclude(orderItem => orderItem.OrderItemAssets)
+            .ThenInclude(orderItemAsset => orderItemAsset.Asset)
+            .ThenInclude(asset => asset.AssignedProduct).FirstOrDefaultAsync();
+
+            return orderToReturn;
         }
     }
 }

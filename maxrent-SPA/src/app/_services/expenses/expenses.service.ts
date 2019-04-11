@@ -38,12 +38,17 @@ constructor(private http: HttpClient) { }
   }
 
   getExpense(id: string) {
-    return this.http.get(this.baseUrl + 'expenses/' + id);
+    return this.http.get(this.baseUrl + 'expense/' + id);
+  }
+
+  getExpensesForChart() {
+    return this.http.get(this.baseUrl + 'expense/GetExpensesForChart');
   }
   deleteExpense(id: number) {
-    return this.http.delete(this.baseUrl + 'expenses/' + id);
+    return this.http.delete(this.baseUrl + 'expense/' + id);
   }
-  addExpense(expense: Expense) {
-    return this.http.post(this.baseUrl + 'expenses/', expense);
+  addExpense(expense: any) {
+    return this.http.post(this.baseUrl + 'expense/AddExpense', expense, { observe: 'response'
+  });
   }
 }

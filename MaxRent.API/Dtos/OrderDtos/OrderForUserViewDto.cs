@@ -6,6 +6,7 @@ namespace MaxRent.API.Dtos
 {
     public class OrderForUserViewDto
     {
+        public int Id { get; set; }
         public string CustomerName { get; set; }
         public string CustomerNumber { get; set; }
         public string CustomerAddress { get; set; }
