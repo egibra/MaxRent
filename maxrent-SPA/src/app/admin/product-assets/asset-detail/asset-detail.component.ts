@@ -32,12 +32,15 @@ export class AssetDetailComponent implements OnInit {
         error => console.log(error)
     );
 
-    this.assetExpenses = this.assetService.getAssetExpenses(this.route.snapshot.paramMap.get('id'));
-
     this.pagination = new Pagination();
     this.pagination.currentPage = 1;
     this.pagination.itemsPerPage = 5;
     this.loadAssetOrders();
+    this.loadAssetExpenses();
+  }
+
+  loadAssetExpenses() {
+    this.assetExpenses = this.assetService.getAssetExpenses(this.route.snapshot.paramMap.get('id'));
   }
 
   pageChanged(event: any): void {
@@ -67,7 +70,11 @@ export class AssetDetailComponent implements OnInit {
         dialogConfig.autoFocus = true;
         dialogConfig.width = '30%';
         dialogConfig.data = myOptions;
-        this.dialog.open(AddExpenseComponent, dialogConfig);
+        const dialogRef = this.dialog.open(AddExpenseComponent, dialogConfig);
+        dialogRef.afterClosed()
+        .subscribe(() => {
+          this.loadAssetExpenses();
+        });
     });
   }
 

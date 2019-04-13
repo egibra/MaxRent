@@ -1,5 +1,5 @@
 {
-  "name": "multiKart",
+  "name": "maxRent",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -22,7 +22,7 @@
     "@angular/material": "^6.4.7",
     "@angular/platform-browser": "^7.0.0",
     "@angular/platform-browser-dynamic": "^7.0.0",
-    "@angular/router": "^7.0.0",
+    "@angular/router": "^7.2.0",
     "@auth0/angular-jwt": "^2.1.0",
     "@ng-bootstrap/ng-bootstrap": "^3.3.1",
     "@ngx-translate/core": "^11.0.1",

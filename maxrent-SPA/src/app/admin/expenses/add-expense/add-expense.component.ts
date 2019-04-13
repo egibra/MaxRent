@@ -55,7 +55,8 @@ export class AddExpenseComponent implements OnInit {
       AssetIds: assetIds
      };
      this.expensesService.addExpense(expenseModel).subscribe(response => {
-       console.log(response);
+      this.toastrService.success('Išlaida sėkmingai pridėta');
+      this.dialogRef.close();
      }, error => {
        console.log(error);
      });

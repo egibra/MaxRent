@@ -6,7 +6,7 @@ import { ProductsService } from 'src/app/_services/products/products.service';
 import { OrderItemForApi } from 'src/app/_models/order-models/order-item-for-api';
 import { User } from 'src/app/_models/user';
 import { OrdersService } from 'src/app/_services/orders/orders.service';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 import { OrderItemForCreation } from 'src/app/_models/order-models/order-item-for-creation';
 import { OrderForCreation } from 'src/app/_models/order-models/order-for-creation';
 import { ToastrService } from 'ngx-toastr';
@@ -20,7 +20,6 @@ export class CheckoutComponent implements OnInit {
 
   // form group
   checkoutForm:  FormGroup;
-  cartItems:  Observable<OrderItemForCreation[]> = of([]);
   checkOutItems:  OrderItemForCreation[] = [];
   orderDetails:  any[] = [];
   amount:  number;
@@ -37,8 +36,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.cartItems = this.cartService.getItems();
-    this.cartItems.subscribe(products =>
+    this.cartService.getItems().subscribe(products =>
        this.checkOutItems = products);
     this.getTotal().subscribe(amount => this.amount = amount);
   }
@@ -67,8 +65,8 @@ export class CheckoutComponent implements OnInit {
     this.ordersService.addOrder(order).subscribe((response: Response) => {
          if (response.status === 200) {
             this.cartService.clearCart();
-            this.router.navigate(['/order-success']);
             this.toastrService.success('Sėkmingai užsakyta.');
+            this.router.navigate(['/order-success']);
          }
         }, error => {
           this.toastrService.error('Nepavyko užsakyti.');
