@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as am4core from '@amcharts/amcharts4/core';
 import * as am4charts from '@amcharts/amcharts4/charts';
+import { AssetsService } from 'src/app/_services/assets/assets.service';
 
 @Component ({
   selector: 'app-profit-chart',
@@ -9,54 +10,18 @@ import * as am4charts from '@amcharts/amcharts4/charts';
 })
 export class ProfitChartComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _assetsService: AssetsService) { }
 
   ngOnInit() {
     const chart = am4core.create('chartdiv', am4charts.XYChart);
 chart.scrollbarX = new am4core.Scrollbar();
 
-// Add data
-chart.data = [{
-  'country': 'USA',
-  'visits': 3025
-}, {
-  'country': 'China',
-  'visits': 1882
-}, {
-  'country': 'Japan',
-  'visits': 1809
-}, {
-  'country': 'Germany',
-  'visits': 1322
-}, {
-  'country': 'UK',
-  'visits': 1122
-}, {
-  'country': 'France',
-  'visits': 1114
-}, {
-  'country': 'India',
-  'visits': 984
-}, {
-  'country': 'Spain',
-  'visits': 711
-}, {
-  'country': 'Netherlands',
-  'visits': 665
-}, {
-  'country': 'Russia',
-  'visits': 580
-}, {
-  'country': 'South Korea',
-  'visits': 443
-}, {
-  'country': 'Canada',
-  'visits': 441
-}];
-
+  this._assetsService.getAssetsForProfitChart().subscribe((response: any) => {
+    chart.data = response;
+  });
 // Create axes
 const categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
-categoryAxis.dataFields.category = 'country';
+categoryAxis.dataFields.category = 'name';
 categoryAxis.renderer.grid.template.location = 0;
 categoryAxis.renderer.minGridDistance = 30;
 categoryAxis.renderer.labels.template.horizontalCenter = 'right';
@@ -71,8 +36,8 @@ valueAxis.renderer.minWidth = 50;
 // Create series
 const series = chart.series.push(new am4charts.ColumnSeries());
 series.sequencedInterpolation = true;
-series.dataFields.valueY = 'visits';
-series.dataFields.categoryX = 'country';
+series.dataFields.valueY = 'sum';
+series.dataFields.categoryX = 'name';
 series.tooltipText = '[{categoryX}: bold]{valueY}[/]';
 series.columns.template.strokeWidth = 0;
 

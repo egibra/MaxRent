@@ -77,4 +77,7 @@ export class AssetsService {
   getAssetExpenses(id: string) {
     return this.http.get<any[]>(this.baseUrl + 'asset/' + id + '/GetAssetExpenses');
   }
+  getAssetsForProfitChart() {
+    return this.http.get(this.baseUrl + 'asset/GetAssetsForProfitChart');
+  }
 }

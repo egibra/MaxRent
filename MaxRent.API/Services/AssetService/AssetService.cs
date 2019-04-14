@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using MaxRent.API.Data.AssetRepository;
 using MaxRent.API.Data.ProductRepository;
 using MaxRent.API.Dtos;
+using MaxRent.API.Dtos.AssetDtos;
 using MaxRent.API.Helpers;
 using MaxRent.API.Models;
 using MaxRent.API.Services.AssetProfitCalculationService;
@@ -120,6 +121,25 @@ namespace MaxRent.API.Services.AssetService
         {
             var asset = await _assetRepository.GetAsset(id);
             return asset.Expenses.OrderByDescending(expense => expense.DateCreated).ToList();
+        }
+
+        public async Task<List<AssetForProfitChart>> GetAssetsForProfitChart() 
+        {
+            var assets = await _assetRepository.GetAllAssetsForProfit();
+            List<AssetForProfitChart> assetsForProfitChart = new List<AssetForProfitChart>();
+            foreach (var asset in assets)
+            {
+                AssetForProfitChart item = new AssetForProfitChart();
+                item.Name = asset.AssetCode;
+                item.Sum = this._assetProfitCalculationService.GetAssetProfitSum(
+                    asset.OrderItemAssets
+                    .Where(x => x.OrderItem.Order.OrderState != OrderStateEnum.Rejected)
+                    .ToList());
+
+                assetsForProfitChart.Add(item);
+            }
+
+            return assetsForProfitChart;
         }
     }
 }

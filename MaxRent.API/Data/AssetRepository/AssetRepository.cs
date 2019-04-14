@@ -30,7 +30,15 @@ namespace MaxRent.API.Data.AssetRepository
 
             return assets;
         }
+        public async Task<List<Asset>> GetAllAssetsForProfit() 
+        {
+            var assets = await _dataContext.Assets
+            .Include(asset => asset.OrderItemAssets)
+            .ThenInclude(orderItemAssets => orderItemAssets.OrderItem)
+            .ThenInclude(orderItem => orderItem.Order).ToListAsync();
 
+            return assets;
+        }
         public async Task<List<Asset>> GetAllProductAssets(int productId)
         {
             var assets = await _dataContext.Assets

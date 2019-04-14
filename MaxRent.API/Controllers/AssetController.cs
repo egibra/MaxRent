@@ -99,6 +99,17 @@ namespace MaxRent.API.Controllers
             return Ok(assets);
         }
 
+        [HttpGet("GetAssetsForProfitChart")]
+        public async Task<IActionResult> GetAssetsForProfitChart()
+        {
+            var assets  = await _assetService.GetAssetsForProfitChart();
+            
+            if (assets == null)
+                return BadRequest();
+
+            return Ok(assets);
+        }
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAsset(int id)
         {

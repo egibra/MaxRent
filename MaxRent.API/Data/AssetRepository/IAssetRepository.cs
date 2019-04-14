@@ -9,6 +9,7 @@ namespace MaxRent.API.Data.AssetRepository
     {
         Task<List<Asset>> GetAllAssets();
         Task<List<Asset>> GetAllProductAssets(int productId);
+        Task<List<Asset>> GetAllAssetsForProfit();
         Task<Asset> GetAsset(int id);
         Task DeleteAsset(int id);
         Task<bool> SaveAll();
