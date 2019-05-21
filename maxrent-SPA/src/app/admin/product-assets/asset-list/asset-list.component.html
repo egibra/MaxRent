@@ -3,9 +3,8 @@
 
 <ul *ngIf="assets">
   <li *ngFor="let asset of assets">
-      <img [src]="asset.photoUrl">
-      <p>{{ asset.productName }} ( {{ asset.assetCode }} )</p>
-      <button [routerLink]="['asset-detail/', asset.assetId]"></button>
+          <img [src]="asset.photoUrl">
+          <i [routerLink]="['asset-detail/', asset.assetId]"> <p>{{ asset.productName }} ( {{ asset.assetCode }} )</p> </i>
   </li>
 </ul>
 <div class="d-flex justify-content-center mb-2">

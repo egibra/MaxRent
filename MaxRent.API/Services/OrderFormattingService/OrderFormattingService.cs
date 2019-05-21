@@ -25,6 +25,7 @@ namespace MaxRent.API.Services.OrderFormattingService
             order.OrderItems = new List<OrderItem>();
             int seed = (int)DateTime.Now.Ticks;
             order.OrderCode = "TRX000" + seed.ToString();
+            order.DateCreated = DateTime.Now;
             foreach (var orderItemForCreation in orderForCreationDto.OrderItems)
             {
                 var orderItem =  await _orderItemFormattingService

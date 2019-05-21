@@ -49,9 +49,9 @@ export class ProductAccordianComponent implements OnInit {
     this.value[1]).subscribe(availableAssetsCount => {
       this.AvailableQuantity = availableAssetsCount;
       if (this.AvailableQuantity > 0) {
-        this.toastrService.success('Laisvos kameros: ' + this.AvailableQuantity);
+        this.toastrService.success('Laisva įranga: ' + this.AvailableQuantity);
       } else {
-        this.toastrService.error('Laisvų kamerų pasirinktu laikotarpiu nėra.');
+        this.toastrService.error('Laisvos įrangos pasirinktu laikotarpiu nėra.');
       }
     });
   }
@@ -113,6 +113,8 @@ export class ProductAccordianComponent implements OnInit {
      orderItem.dateFrom = this.value[0];
      orderItem.dateTo = this.value[1];
      orderItem.totalPrice = this.totalPrice;
+     this.value = new Date();
+     this.totalPrice = 0;
      this.cartService.addToCart(orderItem);
   }
 

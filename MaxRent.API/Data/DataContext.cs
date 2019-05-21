@@ -23,8 +23,6 @@ namespace MaxRent.API.Data
             builder.Entity<Order>().HasMany(order => order.OrderItems);
             builder.Entity<Order>().Property(order => order.OrderState)
             .HasDefaultValue(OrderStateEnum.Received);
-            builder.Entity<Order>().Property(order => order.DateCreated)
-            .HasDefaultValue(DateTime.Now);
             builder.Entity<Expense>().Property(expense => expense.ExpenseType)
             .HasDefaultValue(ExpenseTypeEnum.Other);
             builder.Entity<Expense>().Property(expense => expense.DateCreated)
