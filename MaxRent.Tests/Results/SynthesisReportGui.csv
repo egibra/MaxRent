@@ -1,0 +1,6 @@
+Label,# Samples,Average,Min,Max,90% Line,Std. Dev.,Error %,Throughput,Received KB/sec,Avg. Bytes
+Get all product assets,1,114,114,114,114,0.00,0.00%,8.8,4.45,519.0
+get all assets with pagination,1,51,51,51,51,0.00,0.00%,19.6,38.91,2032.0
+get asset orders,1,23,23,23,23,0.00,0.00%,43.5,26.03,613.0
+Get asset by id,1,95,95,95,95,0.00,0.00%,10.5,33.58,3267.0
+TOTAL,4,70,23,114,114,35.81,0.00%,35.1,55.09,1607.8

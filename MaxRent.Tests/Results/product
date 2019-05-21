@@ -1,0 +1,5 @@
+timeStamp;elapsed;label;responseCode;responseMessage;threadName;dataType;success;failureMessage;bytes;sentBytes;grpThreads;allThreads;URL;Latency;IdleTime;Connect
+17:36:10;2412;Add product;200;OK;Product users 1-1;;true;;92;488;1;1;http://localhost:5000/api/product/addProduct;2412;0;3
+17:36:13;668;Get all products;200;OK;Product users 1-1;text;true;;10405;176;1;1;http://localhost:5000/api/product/getAllProducts;667;0;1
+17:36:13;255;Get all products with pagination;200;OK;Product users 1-1;text;true;;6225;214;1;1;http://localhost:5000/api/product/GetAllProductsWithPagination?pageNumber=1&pageSize=5;254;0;0
+17:36:13;113;Get products by group code;200;OK;Product users 1-1;text;true;;6339;200;1;1;http://localhost:5000/api/product/GetProductsByGroupCode?GroupCode=gopro;113;0;0

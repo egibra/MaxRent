@@ -4,14 +4,14 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="page-title">
-                    <h2>customer's login</h2>
+                    <h2>Vartotojo prisijungimas</h2>
                 </div>
             </div>
             <div class="col-sm-6">
                 <nav aria-label="breadcrumb" class="theme-breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a [routerLink]="'/home'">Home</a></li>
-                        <li class="breadcrumb-item active" >login</li>
+                        <li class="breadcrumb-item"><a [routerLink]="'/home'">Pagrindinis</a></li>
+                        <li class="breadcrumb-item active" >Prisijungti</li>
                     </ol>
                 </nav>
             </div>
@@ -24,29 +24,29 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6" *ngIf="!isLoggedIn">
-                <h3>Login</h3>
+                <h3>Prisijungti</h3>
                 <div class="theme-card">
                     <form class="theme-form" #loginForm="ngForm" (ngSubmit)="login()" >
                         <div class="form-group">
-                            <label for="email">Username</label>
+                            <label for="email">Prisijungimo vardas</label>
                             <input class="form-control" type="text" name="username"
-                            placeholder="Username" required [(ngModel)]="model.username">
+                            placeholder="Prisijungimo vardas" required [(ngModel)]="model.username">
                         </div>
                         <div class="form-group">
-                            <label for="review">Password</label>
+                            <label for="review">Slaptažodis</label>
                             <input  class="form-control" type="password" name="password"
-                            required [(ngModel)]="model.password"id="review" placeholder="Enter your password">
+                            required [(ngModel)]="model.password"id="review" placeholder="Įveskite slaptažodį">
                         </div>
-                        <button [disabled]="!loginForm.valid" class="btn btn-solid">Login</button>
+                        <button [disabled]="!loginForm.valid" class="btn btn-solid">Prisijungti</button>
                     </form>
                 </div>
             </div>
             <div class="col-lg-6 right-login">
-                <h3>New Customer</h3>
+                <h3>Naujas vartotojas</h3>
                 <div class="theme-card authentication-right">
-                    <h6 class="title-font">Create A Account</h6>
-                    <p>Sign up for a free account at our store. Registration is quick and easy. It allows you to be able to order from our shop. To start shopping click register.</p>
-                    <button class="btn btn-solid">Create an Account</button>
+                    <h6 class="title-font">Sukurti paskyrą</h6>
+                    <p>Susikurkite nemokamą paskyrą mūsų puslapyje. Registracija greita ir paprasta. Tai leis jums pateikti užsakymus mūsų platformoje. Norint pradėti nuomuotis spauskite "Registruotis".</p>
+                    <button class="btn btn-solid">Registruotis</button>
                 </div>
             </div>
         </div>

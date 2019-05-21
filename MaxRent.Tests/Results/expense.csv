@@ -1,0 +1,61 @@
+timeStamp;elapsed;label;responseCode;responseMessage;threadName;dataType;success;failureMessage;bytes;sentBytes;grpThreads;allThreads;URL;Latency;IdleTime;Connect
+14:27:50;2394;Add expense;200;OK;Expense users 1-2;;true;;92;314;4;4;http://localhost:5000/api/expense/AddExpense;2394;0;1
+14:27:52;372;Add expense;200;OK;Expense users 1-4;;true;;92;314;4;4;http://localhost:5000/api/expense/AddExpense;372;0;1
+14:27:49;3389;Add expense;200;OK;Expense users 1-1;;true;;92;314;4;4;http://localhost:5000/api/expense/AddExpense;3389;0;16
+14:27:51;1375;Add expense;200;OK;Expense users 1-3;;true;;92;314;4;4;http://localhost:5000/api/expense/AddExpense;1375;0;2
+14:27:53;101;Add expense;200;OK;Expense users 1-5;;true;;92;314;5;5;http://localhost:5000/api/expense/AddExpense;101;0;1
+14:27:53;388;Get expenses for chart;200;OK;Expense users 1-5;text;true;;1331;181;5;5;http://localhost:5000/api/Expense/GetExpensesForChart;388;0;0
+14:27:52;1113;Get expenses for chart;200;OK;Expense users 1-2;text;true;;1331;181;5;5;http://localhost:5000/api/Expense/GetExpensesForChart;1113;0;1
+14:27:52;1125;Get expenses for chart;200;OK;Expense users 1-1;text;true;;1331;181;3;3;http://localhost:5000/api/Expense/GetExpensesForChart;1125;0;3
+14:27:52;1128;Get expenses for chart;200;OK;Expense users 1-3;text;true;;1331;181;2;2;http://localhost:5000/api/Expense/GetExpensesForChart;1128;0;0
+14:27:52;1129;Get expenses for chart;200;OK;Expense users 1-4;text;true;;1331;181;2;2;http://localhost:5000/api/Expense/GetExpensesForChart;1129;0;0
+14:27:54;25;Add expense;200;OK;Expense users 1-6;;true;;92;314;1;1;http://localhost:5000/api/expense/AddExpense;25;0;1
+14:27:54;104;Get expenses for chart;200;OK;Expense users 1-6;text;true;;1331;181;1;1;http://localhost:5000/api/Expense/GetExpensesForChart;104;0;0
+14:27:55;16;Add expense;200;OK;Expense users 1-7;;true;;92;314;1;1;http://localhost:5000/api/expense/AddExpense;16;0;1
+14:27:55;61;Get expenses for chart;200;OK;Expense users 1-7;text;true;;1331;181;1;1;http://localhost:5000/api/Expense/GetExpensesForChart;61;0;0
+14:27:56;38;Add expense;200;OK;Expense users 1-8;;true;;92;314;1;1;http://localhost:5000/api/expense/AddExpense;38;0;1
+14:27:56;104;Get expenses for chart;200;OK;Expense users 1-8;text;true;;1331;181;1;1;http://localhost:5000/api/Expense/GetExpensesForChart;104;0;0
+14:27:57;27;Add expense;200;OK;Expense users 1-9;;true;;92;314;1;1;http://localhost:5000/api/expense/AddExpense;27;0;2
+14:27:57;69;Get expenses for chart;200;OK;Expense users 1-9;text;true;;1331;181;1;1;http://localhost:5000/api/Expense/GetExpensesForChart;69;0;0
+14:27:58;22;Add expense;200;OK;Expense users 1-10;;true;;92;314;1;1;http://localhost:5000/api/expense/AddExpense;22;0;2
+14:27:58;54;Get expenses for chart;200;OK;Expense users 1-10;text;true;;1331;181;1;1;http://localhost:5000/api/Expense/GetExpensesForChart;54;0;0
+14:27:59;17;Add expense;200;OK;Expense users 1-11;;true;;92;314;1;1;http://localhost:5000/api/expense/AddExpense;17;0;1
+14:27:59;60;Get expenses for chart;200;OK;Expense users 1-11;text;true;;1331;181;1;1;http://localhost:5000/api/Expense/GetExpensesForChart;60;0;0
+14:28:00;22;Add expense;200;OK;Expense users 1-12;;true;;92;314;1;1;http://localhost:5000/api/expense/AddExpense;22;0;1
+14:28:00;51;Get expenses for chart;200;OK;Expense users 1-12;text;true;;1331;181;1;1;http://localhost:5000/api/Expense/GetExpensesForChart;51;0;0
+14:28:01;25;Add expense;200;OK;Expense users 1-13;;true;;92;314;1;1;http://localhost:5000/api/expense/AddExpense;25;0;1
+14:28:01;84;Get expenses for chart;200;OK;Expense users 1-13;text;true;;1331;181;1;1;http://localhost:5000/api/Expense/GetExpensesForChart;83;0;0
+14:28:02;18;Add expense;200;OK;Expense users 1-14;;true;;92;314;1;1;http://localhost:5000/api/expense/AddExpense;18;0;1
+14:28:02;47;Get expenses for chart;200;OK;Expense users 1-14;text;true;;1331;181;1;1;http://localhost:5000/api/Expense/GetExpensesForChart;47;0;0
+14:28:03;19;Add expense;200;OK;Expense users 1-15;;true;;92;314;1;1;http://localhost:5000/api/expense/AddExpense;19;0;1
+14:28:03;64;Get expenses for chart;200;OK;Expense users 1-15;text;true;;1331;181;1;1;http://localhost:5000/api/Expense/GetExpensesForChart;64;0;0
+14:28:04;19;Add expense;200;OK;Expense users 1-16;;true;;92;314;1;1;http://localhost:5000/api/expense/AddExpense;19;0;1
+14:28:04;57;Get expenses for chart;200;OK;Expense users 1-16;text;true;;1331;181;1;1;http://localhost:5000/api/Expense/GetExpensesForChart;57;0;0
+14:28:05;50;Add expense;200;OK;Expense users 1-17;;true;;92;314;1;1;http://localhost:5000/api/expense/AddExpense;50;0;2
+14:28:05;85;Get expenses for chart;200;OK;Expense users 1-17;text;true;;1331;181;1;1;http://localhost:5000/api/Expense/GetExpensesForChart;85;0;0
+14:28:06;23;Add expense;200;OK;Expense users 1-18;;true;;92;314;1;1;http://localhost:5000/api/expense/AddExpense;23;0;1
+14:28:06;77;Get expenses for chart;200;OK;Expense users 1-18;text;true;;1331;181;1;1;http://localhost:5000/api/Expense/GetExpensesForChart;77;0;0
+14:28:07;21;Add expense;200;OK;Expense users 1-19;;true;;92;314;1;1;http://localhost:5000/api/expense/AddExpense;21;0;1
+14:28:07;44;Get expenses for chart;200;OK;Expense users 1-19;text;true;;1331;181;1;1;http://localhost:5000/api/Expense/GetExpensesForChart;44;0;0
+14:28:08;66;Add expense;200;OK;Expense users 1-20;;true;;92;314;1;1;http://localhost:5000/api/expense/AddExpense;66;0;2
+14:28:08;117;Get expenses for chart;200;OK;Expense users 1-20;text;true;;1331;181;1;1;http://localhost:5000/api/Expense/GetExpensesForChart;117;0;0
+14:28:09;25;Add expense;200;OK;Expense users 1-21;;true;;92;314;1;1;http://localhost:5000/api/expense/AddExpense;25;0;1
+14:28:09;69;Get expenses for chart;200;OK;Expense users 1-21;text;true;;1331;181;1;1;http://localhost:5000/api/Expense/GetExpensesForChart;69;0;0
+14:28:10;23;Add expense;200;OK;Expense users 1-22;;true;;92;314;1;1;http://localhost:5000/api/expense/AddExpense;23;0;1
+14:28:10;120;Get expenses for chart;200;OK;Expense users 1-22;text;true;;1331;181;1;1;http://localhost:5000/api/Expense/GetExpensesForChart;120;0;0
+14:28:11;39;Add expense;200;OK;Expense users 1-23;;true;;92;314;1;1;http://localhost:5000/api/expense/AddExpense;39;0;2
+14:28:11;94;Get expenses for chart;200;OK;Expense users 1-23;text;true;;1331;181;1;1;http://localhost:5000/api/Expense/GetExpensesForChart;94;0;0
+14:28:12;29;Add expense;200;OK;Expense users 1-24;;true;;92;314;1;1;http://localhost:5000/api/expense/AddExpense;29;0;1
+14:28:12;83;Get expenses for chart;200;OK;Expense users 1-24;text;true;;1331;181;1;1;http://localhost:5000/api/Expense/GetExpensesForChart;83;0;0
+14:28:13;14;Add expense;200;OK;Expense users 1-25;;true;;92;314;1;1;http://localhost:5000/api/expense/AddExpense;14;0;2
+14:28:13;79;Get expenses for chart;200;OK;Expense users 1-25;text;true;;1331;181;1;1;http://localhost:5000/api/Expense/GetExpensesForChart;79;0;0
+14:28:14;22;Add expense;200;OK;Expense users 1-26;;true;;92;314;1;1;http://localhost:5000/api/expense/AddExpense;22;0;2
+14:28:14;62;Get expenses for chart;200;OK;Expense users 1-26;text;true;;1331;181;1;1;http://localhost:5000/api/Expense/GetExpensesForChart;62;0;0
+14:28:15;28;Add expense;200;OK;Expense users 1-27;;true;;92;314;1;1;http://localhost:5000/api/expense/AddExpense;28;0;2
+14:28:15;104;Get expenses for chart;200;OK;Expense users 1-27;text;true;;1331;181;1;1;http://localhost:5000/api/Expense/GetExpensesForChart;104;0;0
+14:28:16;39;Add expense;200;OK;Expense users 1-28;;true;;92;314;1;1;http://localhost:5000/api/expense/AddExpense;39;0;2
+14:28:16;141;Get expenses for chart;200;OK;Expense users 1-28;text;true;;1331;181;1;1;http://localhost:5000/api/Expense/GetExpensesForChart;141;0;0
+14:28:17;25;Add expense;200;OK;Expense users 1-29;;true;;92;314;1;1;http://localhost:5000/api/expense/AddExpense;25;0;2
+14:28:17;70;Get expenses for chart;200;OK;Expense users 1-29;text;true;;1331;181;1;1;http://localhost:5000/api/Expense/GetExpensesForChart;70;0;0
+14:28:18;27;Add expense;200;OK;Expense users 1-30;;true;;92;314;1;1;http://localhost:5000/api/expense/AddExpense;27;0;2
+14:28:18;78;Get expenses for chart;200;OK;Expense users 1-30;text;true;;1331;181;1;1;http://localhost:5000/api/Expense/GetExpensesForChart;78;0;0

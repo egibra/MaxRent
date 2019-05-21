@@ -1,0 +1,4 @@
+Label,# Samples,Average,Median,90% Line,95% Line,99% Line,Min,Max,Error %,Throughput,Received KB/sec,Std. Dev.
+Login,550,6,6,11,14,17,4,25,0.00%,9.2,4.3,2.99
+Register,550,5,4,8,9,12,3,46,0.00%,9.2,.8,3.22
+TOTAL,1100,5,5,9,11,16,3,46,0.00%,18.3,5.2,3.22

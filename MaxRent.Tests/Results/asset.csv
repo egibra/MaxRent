@@ -1,0 +1,121 @@
+timeStamp;elapsed;label;responseCode;responseMessage;threadName;dataType;success;failureMessage;bytes;sentBytes;grpThreads;allThreads;URL;Latency;IdleTime;Connect
+18:19:32;95;Get all product assets;200;OK;Asset users 1-1;text;true;;519;149;1;1;http://localhost:5000/api/asset/5/GetAllProductAssets;95;0;4
+18:19:32;62;get all assets with pagination;200;OK;Asset users 1-1;text;true;;2032;260;1;1;http://localhost:5000/api/asset/GetAllAssetsWithPagination;62;0;0
+18:19:32;26;get asset orders;200;OK;Asset users 1-1;text;true;;1084;250;1;1;http://localhost:5000/api/asset/1/GetAssetOrders;26;0;0
+18:19:32;23;Get asset by id;200;OK;Asset users 1-1;text;true;;5811;129;1;1;http://localhost:5000/api/asset/1;22;0;0
+18:19:42;17;Get all product assets;200;OK;Asset users 1-2;text;true;;519;149;1;1;http://localhost:5000/api/asset/5/GetAllProductAssets;16;0;1
+18:19:42;32;get all assets with pagination;200;OK;Asset users 1-2;text;true;;2032;260;1;1;http://localhost:5000/api/asset/GetAllAssetsWithPagination;32;0;0
+18:19:42;19;get asset orders;200;OK;Asset users 1-2;text;true;;1084;250;1;1;http://localhost:5000/api/asset/1/GetAssetOrders;19;0;0
+18:19:42;15;Get asset by id;200;OK;Asset users 1-2;text;true;;5811;129;1;1;http://localhost:5000/api/asset/1;15;0;0
+18:19:52;16;Get all product assets;200;OK;Asset users 1-3;text;true;;519;149;1;1;http://localhost:5000/api/asset/5/GetAllProductAssets;16;0;1
+18:19:52;16;get all assets with pagination;200;OK;Asset users 1-3;text;true;;2032;260;1;1;http://localhost:5000/api/asset/GetAllAssetsWithPagination;16;0;0
+18:19:52;17;get asset orders;200;OK;Asset users 1-3;text;true;;1084;250;1;1;http://localhost:5000/api/asset/1/GetAssetOrders;17;0;0
+18:19:52;22;Get asset by id;200;OK;Asset users 1-3;text;true;;5811;129;1;1;http://localhost:5000/api/asset/1;22;0;0
+18:20:02;52;Get all product assets;200;OK;Asset users 1-4;text;true;;519;149;1;1;http://localhost:5000/api/asset/5/GetAllProductAssets;52;0;3
+18:20:02;67;get all assets with pagination;200;OK;Asset users 1-4;text;true;;2032;260;1;1;http://localhost:5000/api/asset/GetAllAssetsWithPagination;67;0;0
+18:20:02;24;get asset orders;200;OK;Asset users 1-4;text;true;;1084;250;1;1;http://localhost:5000/api/asset/1/GetAssetOrders;24;0;0
+18:20:02;23;Get asset by id;200;OK;Asset users 1-4;text;true;;5811;129;1;1;http://localhost:5000/api/asset/1;23;0;0
+18:20:12;61;Get all product assets;200;OK;Asset users 1-5;text;true;;519;149;1;1;http://localhost:5000/api/asset/5/GetAllProductAssets;60;0;2
+18:20:12;22;get all assets with pagination;200;OK;Asset users 1-5;text;true;;2032;260;1;1;http://localhost:5000/api/asset/GetAllAssetsWithPagination;22;0;0
+18:20:12;24;get asset orders;200;OK;Asset users 1-5;text;true;;1084;250;1;1;http://localhost:5000/api/asset/1/GetAssetOrders;24;0;0
+18:20:12;13;Get asset by id;200;OK;Asset users 1-5;text;true;;5811;129;1;1;http://localhost:5000/api/asset/1;13;0;0
+18:20:22;53;Get all product assets;200;OK;Asset users 1-6;text;true;;519;149;1;1;http://localhost:5000/api/asset/5/GetAllProductAssets;53;0;0
+18:20:22;58;get all assets with pagination;200;OK;Asset users 1-6;text;true;;2032;260;1;1;http://localhost:5000/api/asset/GetAllAssetsWithPagination;58;0;0
+18:20:22;32;get asset orders;200;OK;Asset users 1-6;text;true;;1084;250;1;1;http://localhost:5000/api/asset/1/GetAssetOrders;32;0;0
+18:20:22;25;Get asset by id;200;OK;Asset users 1-6;text;true;;5811;129;1;1;http://localhost:5000/api/asset/1;25;0;0
+18:20:32;15;Get all product assets;200;OK;Asset users 1-7;text;true;;519;149;1;1;http://localhost:5000/api/asset/5/GetAllProductAssets;15;0;1
+18:20:32;24;get all assets with pagination;200;OK;Asset users 1-7;text;true;;2032;260;1;1;http://localhost:5000/api/asset/GetAllAssetsWithPagination;24;0;0
+18:20:32;9;get asset orders;200;OK;Asset users 1-7;text;true;;1084;250;1;1;http://localhost:5000/api/asset/1/GetAssetOrders;9;0;0
+18:20:32;9;Get asset by id;200;OK;Asset users 1-7;text;true;;5811;129;1;1;http://localhost:5000/api/asset/1;8;0;0
+18:20:42;15;Get all product assets;200;OK;Asset users 1-8;text;true;;519;149;1;1;http://localhost:5000/api/asset/5/GetAllProductAssets;15;0;2
+18:20:42;13;get all assets with pagination;200;OK;Asset users 1-8;text;true;;2032;260;1;1;http://localhost:5000/api/asset/GetAllAssetsWithPagination;13;0;0
+18:20:42;17;get asset orders;200;OK;Asset users 1-8;text;true;;1084;250;1;1;http://localhost:5000/api/asset/1/GetAssetOrders;17;0;0
+18:20:42;19;Get asset by id;200;OK;Asset users 1-8;text;true;;5811;129;1;1;http://localhost:5000/api/asset/1;19;0;0
+18:20:52;18;Get all product assets;200;OK;Asset users 1-9;text;true;;519;149;1;1;http://localhost:5000/api/asset/5/GetAllProductAssets;18;0;1
+18:20:52;36;get all assets with pagination;200;OK;Asset users 1-9;text;true;;2032;260;1;1;http://localhost:5000/api/asset/GetAllAssetsWithPagination;36;0;0
+18:20:52;15;get asset orders;200;OK;Asset users 1-9;text;true;;1084;250;1;1;http://localhost:5000/api/asset/1/GetAssetOrders;15;0;0
+18:20:52;20;Get asset by id;200;OK;Asset users 1-9;text;true;;5811;129;1;1;http://localhost:5000/api/asset/1;20;0;0
+18:21:02;20;Get all product assets;200;OK;Asset users 1-10;text;true;;519;149;1;1;http://localhost:5000/api/asset/5/GetAllProductAssets;20;0;2
+18:21:02;16;get all assets with pagination;200;OK;Asset users 1-10;text;true;;2032;260;1;1;http://localhost:5000/api/asset/GetAllAssetsWithPagination;16;0;0
+18:21:02;10;get asset orders;200;OK;Asset users 1-10;text;true;;1084;250;1;1;http://localhost:5000/api/asset/1/GetAssetOrders;10;0;0
+18:21:02;14;Get asset by id;200;OK;Asset users 1-10;text;true;;5811;129;1;1;http://localhost:5000/api/asset/1;13;0;0
+18:21:12;25;Get all product assets;200;OK;Asset users 1-11;text;true;;519;149;1;1;http://localhost:5000/api/asset/5/GetAllProductAssets;25;0;8
+18:21:12;21;get all assets with pagination;200;OK;Asset users 1-11;text;true;;2032;260;1;1;http://localhost:5000/api/asset/GetAllAssetsWithPagination;21;0;0
+18:21:12;21;get asset orders;200;OK;Asset users 1-11;text;true;;1084;250;1;1;http://localhost:5000/api/asset/1/GetAssetOrders;21;0;0
+18:21:12;22;Get asset by id;200;OK;Asset users 1-11;text;true;;5811;129;1;1;http://localhost:5000/api/asset/1;22;0;0
+18:21:22;49;Get all product assets;200;OK;Asset users 1-12;text;true;;519;149;1;1;http://localhost:5000/api/asset/5/GetAllProductAssets;49;0;2
+18:21:22;27;get all assets with pagination;200;OK;Asset users 1-12;text;true;;2032;260;1;1;http://localhost:5000/api/asset/GetAllAssetsWithPagination;27;0;0
+18:21:22;12;get asset orders;200;OK;Asset users 1-12;text;true;;1084;250;1;1;http://localhost:5000/api/asset/1/GetAssetOrders;12;0;0
+18:21:22;9;Get asset by id;200;OK;Asset users 1-12;text;true;;5811;129;1;1;http://localhost:5000/api/asset/1;9;0;0
+18:21:32;32;Get all product assets;200;OK;Asset users 1-13;text;true;;519;149;1;1;http://localhost:5000/api/asset/5/GetAllProductAssets;32;0;3
+18:21:32;14;get all assets with pagination;200;OK;Asset users 1-13;text;true;;2032;260;1;1;http://localhost:5000/api/asset/GetAllAssetsWithPagination;14;0;0
+18:21:32;14;get asset orders;200;OK;Asset users 1-13;text;true;;1084;250;1;1;http://localhost:5000/api/asset/1/GetAssetOrders;14;0;0
+18:21:32;13;Get asset by id;200;OK;Asset users 1-13;text;true;;5811;129;1;1;http://localhost:5000/api/asset/1;13;0;0
+18:21:42;16;Get all product assets;200;OK;Asset users 1-14;text;true;;519;149;1;1;http://localhost:5000/api/asset/5/GetAllProductAssets;16;0;1
+18:21:42;17;get all assets with pagination;200;OK;Asset users 1-14;text;true;;2032;260;1;1;http://localhost:5000/api/asset/GetAllAssetsWithPagination;16;0;0
+18:21:42;26;get asset orders;200;OK;Asset users 1-14;text;true;;1084;250;1;1;http://localhost:5000/api/asset/1/GetAssetOrders;25;0;0
+18:21:42;35;Get asset by id;200;OK;Asset users 1-14;text;true;;5811;129;1;1;http://localhost:5000/api/asset/1;35;0;0
+18:21:52;13;Get all product assets;200;OK;Asset users 1-15;text;true;;519;149;1;1;http://localhost:5000/api/asset/5/GetAllProductAssets;13;0;2
+18:21:52;10;get all assets with pagination;200;OK;Asset users 1-15;text;true;;2032;260;1;1;http://localhost:5000/api/asset/GetAllAssetsWithPagination;9;0;0
+18:21:52;15;get asset orders;200;OK;Asset users 1-15;text;true;;1084;250;1;1;http://localhost:5000/api/asset/1/GetAssetOrders;15;0;0
+18:21:52;17;Get asset by id;200;OK;Asset users 1-15;text;true;;5811;129;1;1;http://localhost:5000/api/asset/1;17;0;0
+18:22:02;12;Get all product assets;200;OK;Asset users 1-16;text;true;;519;149;1;1;http://localhost:5000/api/asset/5/GetAllProductAssets;11;0;0
+18:22:02;11;get all assets with pagination;200;OK;Asset users 1-16;text;true;;2032;260;1;1;http://localhost:5000/api/asset/GetAllAssetsWithPagination;11;0;0
+18:22:02;10;get asset orders;200;OK;Asset users 1-16;text;true;;1084;250;1;1;http://localhost:5000/api/asset/1/GetAssetOrders;9;0;0
+18:22:02;10;Get asset by id;200;OK;Asset users 1-16;text;true;;5811;129;1;1;http://localhost:5000/api/asset/1;10;0;0
+18:22:12;26;Get all product assets;200;OK;Asset users 1-17;text;true;;519;149;1;1;http://localhost:5000/api/asset/5/GetAllProductAssets;26;0;2
+18:22:12;11;get all assets with pagination;200;OK;Asset users 1-17;text;true;;2032;260;1;1;http://localhost:5000/api/asset/GetAllAssetsWithPagination;10;0;0
+18:22:12;12;get asset orders;200;OK;Asset users 1-17;text;true;;1084;250;1;1;http://localhost:5000/api/asset/1/GetAssetOrders;12;0;0
+18:22:12;12;Get asset by id;200;OK;Asset users 1-17;text;true;;5811;129;1;1;http://localhost:5000/api/asset/1;12;0;0
+18:22:22;13;Get all product assets;200;OK;Asset users 1-18;text;true;;519;149;1;1;http://localhost:5000/api/asset/5/GetAllProductAssets;12;0;1
+18:22:22;11;get all assets with pagination;200;OK;Asset users 1-18;text;true;;2032;260;1;1;http://localhost:5000/api/asset/GetAllAssetsWithPagination;11;0;0
+18:22:22;11;get asset orders;200;OK;Asset users 1-18;text;true;;1084;250;1;1;http://localhost:5000/api/asset/1/GetAssetOrders;10;0;0
+18:22:22;14;Get asset by id;200;OK;Asset users 1-18;text;true;;5811;129;1;1;http://localhost:5000/api/asset/1;14;0;0
+18:22:32;41;Get all product assets;200;OK;Asset users 1-19;text;true;;519;149;1;1;http://localhost:5000/api/asset/5/GetAllProductAssets;40;0;2
+18:22:32;38;get all assets with pagination;200;OK;Asset users 1-19;text;true;;2032;260;1;1;http://localhost:5000/api/asset/GetAllAssetsWithPagination;38;0;0
+18:22:32;9;get asset orders;200;OK;Asset users 1-19;text;true;;1084;250;1;1;http://localhost:5000/api/asset/1/GetAssetOrders;9;0;0
+18:22:32;16;Get asset by id;200;OK;Asset users 1-19;text;true;;5811;129;1;1;http://localhost:5000/api/asset/1;16;0;0
+18:22:42;15;Get all product assets;200;OK;Asset users 1-20;text;true;;519;149;1;1;http://localhost:5000/api/asset/5/GetAllProductAssets;15;0;1
+18:22:42;19;get all assets with pagination;200;OK;Asset users 1-20;text;true;;2032;260;1;1;http://localhost:5000/api/asset/GetAllAssetsWithPagination;19;0;0
+18:22:42;15;get asset orders;200;OK;Asset users 1-20;text;true;;1084;250;1;1;http://localhost:5000/api/asset/1/GetAssetOrders;15;0;0
+18:22:42;11;Get asset by id;200;OK;Asset users 1-20;text;true;;5811;129;1;1;http://localhost:5000/api/asset/1;11;0;0
+18:22:52;13;Get all product assets;200;OK;Asset users 1-21;text;true;;519;149;1;1;http://localhost:5000/api/asset/5/GetAllProductAssets;13;0;1
+18:22:52;10;get all assets with pagination;200;OK;Asset users 1-21;text;true;;2032;260;1;1;http://localhost:5000/api/asset/GetAllAssetsWithPagination;10;0;0
+18:22:52;7;get asset orders;200;OK;Asset users 1-21;text;true;;1084;250;1;1;http://localhost:5000/api/asset/1/GetAssetOrders;7;0;0
+18:22:52;9;Get asset by id;200;OK;Asset users 1-21;text;true;;5811;129;1;1;http://localhost:5000/api/asset/1;9;0;0
+18:23:02;29;Get all product assets;200;OK;Asset users 1-22;text;true;;519;149;1;1;http://localhost:5000/api/asset/5/GetAllProductAssets;29;0;4
+18:23:02;19;get all assets with pagination;200;OK;Asset users 1-22;text;true;;2032;260;1;1;http://localhost:5000/api/asset/GetAllAssetsWithPagination;19;0;0
+18:23:02;15;get asset orders;200;OK;Asset users 1-22;text;true;;1084;250;1;1;http://localhost:5000/api/asset/1/GetAssetOrders;15;0;0
+18:23:02;7;Get asset by id;200;OK;Asset users 1-22;text;true;;5811;129;1;1;http://localhost:5000/api/asset/1;7;0;0
+18:23:12;13;Get all product assets;200;OK;Asset users 1-23;text;true;;519;149;1;1;http://localhost:5000/api/asset/5/GetAllProductAssets;13;0;1
+18:23:12;40;get all assets with pagination;200;OK;Asset users 1-23;text;true;;2032;260;1;1;http://localhost:5000/api/asset/GetAllAssetsWithPagination;40;0;0
+18:23:12;12;get asset orders;200;OK;Asset users 1-23;text;true;;1084;250;1;1;http://localhost:5000/api/asset/1/GetAssetOrders;11;0;0
+18:23:12;13;Get asset by id;200;OK;Asset users 1-23;text;true;;5811;129;1;1;http://localhost:5000/api/asset/1;13;0;0
+18:23:22;14;Get all product assets;200;OK;Asset users 1-24;text;true;;519;149;1;1;http://localhost:5000/api/asset/5/GetAllProductAssets;14;0;1
+18:23:22;24;get all assets with pagination;200;OK;Asset users 1-24;text;true;;2032;260;1;1;http://localhost:5000/api/asset/GetAllAssetsWithPagination;23;0;0
+18:23:22;13;get asset orders;200;OK;Asset users 1-24;text;true;;1084;250;1;1;http://localhost:5000/api/asset/1/GetAssetOrders;13;0;0
+18:23:22;10;Get asset by id;200;OK;Asset users 1-24;text;true;;5811;129;1;1;http://localhost:5000/api/asset/1;10;0;0
+18:23:32;48;Get all product assets;200;OK;Asset users 1-25;text;true;;519;149;1;1;http://localhost:5000/api/asset/5/GetAllProductAssets;47;0;1
+18:23:32;26;get all assets with pagination;200;OK;Asset users 1-25;text;true;;2032;260;1;1;http://localhost:5000/api/asset/GetAllAssetsWithPagination;26;0;0
+18:23:32;20;get asset orders;200;OK;Asset users 1-25;text;true;;1084;250;1;1;http://localhost:5000/api/asset/1/GetAssetOrders;20;0;0
+18:23:32;10;Get asset by id;200;OK;Asset users 1-25;text;true;;5811;129;1;1;http://localhost:5000/api/asset/1;10;0;0
+18:23:42;44;Get all product assets;200;OK;Asset users 1-26;text;true;;519;149;1;1;http://localhost:5000/api/asset/5/GetAllProductAssets;44;0;2
+18:23:42;34;get all assets with pagination;200;OK;Asset users 1-26;text;true;;2032;260;1;1;http://localhost:5000/api/asset/GetAllAssetsWithPagination;34;0;0
+18:23:42;23;get asset orders;200;OK;Asset users 1-26;text;true;;1084;250;1;1;http://localhost:5000/api/asset/1/GetAssetOrders;23;0;0
+18:23:42;12;Get asset by id;200;OK;Asset users 1-26;text;true;;5811;129;1;1;http://localhost:5000/api/asset/1;12;0;0
+18:23:52;23;Get all product assets;200;OK;Asset users 1-27;text;true;;519;149;1;1;http://localhost:5000/api/asset/5/GetAllProductAssets;23;0;2
+18:23:52;13;get all assets with pagination;200;OK;Asset users 1-27;text;true;;2032;260;1;1;http://localhost:5000/api/asset/GetAllAssetsWithPagination;13;0;0
+18:23:52;11;get asset orders;200;OK;Asset users 1-27;text;true;;1084;250;1;1;http://localhost:5000/api/asset/1/GetAssetOrders;11;0;0
+18:23:52;12;Get asset by id;200;OK;Asset users 1-27;text;true;;5811;129;1;1;http://localhost:5000/api/asset/1;12;0;0
+18:24:02;13;Get all product assets;200;OK;Asset users 1-28;text;true;;519;149;1;1;http://localhost:5000/api/asset/5/GetAllProductAssets;12;0;1
+18:24:02;10;get all assets with pagination;200;OK;Asset users 1-28;text;true;;2032;260;1;1;http://localhost:5000/api/asset/GetAllAssetsWithPagination;10;0;0
+18:24:02;22;get asset orders;200;OK;Asset users 1-28;text;true;;1084;250;1;1;http://localhost:5000/api/asset/1/GetAssetOrders;22;0;0
+18:24:02;9;Get asset by id;200;OK;Asset users 1-28;text;true;;5811;129;1;1;http://localhost:5000/api/asset/1;8;0;0
+18:24:12;12;Get all product assets;200;OK;Asset users 1-29;text;true;;519;149;1;1;http://localhost:5000/api/asset/5/GetAllProductAssets;12;0;1
+18:24:12;12;get all assets with pagination;200;OK;Asset users 1-29;text;true;;2032;260;1;1;http://localhost:5000/api/asset/GetAllAssetsWithPagination;12;0;0
+18:24:12;18;get asset orders;200;OK;Asset users 1-29;text;true;;1084;250;1;1;http://localhost:5000/api/asset/1/GetAssetOrders;17;0;0
+18:24:12;11;Get asset by id;200;OK;Asset users 1-29;text;true;;5811;129;1;1;http://localhost:5000/api/asset/1;11;0;0
+18:24:22;19;Get all product assets;200;OK;Asset users 1-30;text;true;;519;149;1;1;http://localhost:5000/api/asset/5/GetAllProductAssets;19;0;2
+18:24:22;19;get all assets with pagination;200;OK;Asset users 1-30;text;true;;2032;260;1;1;http://localhost:5000/api/asset/GetAllAssetsWithPagination;19;0;0
+18:24:22;15;get asset orders;200;OK;Asset users 1-30;text;true;;1084;250;1;1;http://localhost:5000/api/asset/1/GetAssetOrders;14;0;0
+18:24:22;17;Get asset by id;200;OK;Asset users 1-30;text;true;;5811;129;1;1;http://localhost:5000/api/asset/1;17;0;0

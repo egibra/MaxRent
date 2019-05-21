@@ -1,0 +1,4 @@
+Label,# Samples,Average,Median,90% Line,95% Line,99% Line,Min,Max,Error %,Throughput,Received KB/sec,Std. Dev.
+Add expense,30,277,25,372,1375,3389,14,3389,0.00%,1.0,.1,752.23
+Get expenses for chart,30,228,79,1113,1125,1129,44,1129,0.00%,1.2,1.5,356.10
+TOTAL,60,252,60,1113,1129,2394,14,3389,0.00%,2.1,1.4,588.99
